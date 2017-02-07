@@ -20,11 +20,11 @@
         <table action="shorter/data" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-condensed" id="shorter_grid" width="100%">
           <thead>
             <tr>
-              <th>{{trans('resource.category.id')}}</th>
               <th>{{trans('resource.category.name')}}</th>
               <th>{{trans('resource.category.link')}}</th>
               <th>{{trans('resource.category.target')}}</th>
               <th>{{trans('resource.poll.status')}}</th>
+              <th></th>
             </tr>
           </thead>
         </table>
