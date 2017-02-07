@@ -76,6 +76,12 @@
     },
     makeDecision : function(id){
       uPage.call('decisionregister', {'id': id});
+    },
+    save : function(){
+      uForm.register('decisionRegister_form', function(data){
+        uPage.close('window_decisionRegister');
+        baseGridFunc.reload('decisions_grid');
+      });
     }
 }
 
