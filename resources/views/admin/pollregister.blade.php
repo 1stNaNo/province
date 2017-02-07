@@ -2,10 +2,6 @@
 <div id="window_pollRegister" class="page-window">
   <form class="form-horizontal" method="POST" role="form" action="{{ url('/admin/pollsave') }}" id="pollRegister_form" style="width:100%; height: 100%">
     <input type="hidden" class="prev_window"/>
-    <div class="page-title">
-      <i class="icon-custom-left"></i>
-      <h3> - <span class="semi-bold">{{trans('resource.poll.register')}}</span></h3>
-    </div>
     <div class="row-fluid">
       <div class="row-fluid">
         <div class="span12">
@@ -68,6 +64,23 @@
 
                 </div>
 
+                <div class="row-fluid">
+
+                  <div class="span8">
+                    <div class="control-group">
+                      <div class="controls">
+                        <div class="checkbox check-default checkbox-circle">
+                          <input id="checkbox_ismakeactive" name="active_flag" value="1" type="checkbox" />
+                          <label for="checkbox_ismakeactive">{{trans('resource.poll.makeactive')}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+
               </div>
 
               <!-- BUTTONS -->
@@ -76,7 +89,7 @@
                 <div class="span8" style="text-align: center;">
                   <div class="control-group">
                     <div class="controls">
-                      <button type="button" class="btn btn-primary btn-cons" onclick="uForm.register('pollRegister_form', function(data){ console.log(data); uPage.close('window_pollRegister'); });return false;">Хадгалах</button>
+                      <button type="button" class="btn btn-primary btn-cons" onclick="uForm.register('pollRegister_form', function(data){ console.log(data); uPage.close('window_pollRegister'); baseGridFunc.reload('poll_grid') });return false;">Хадгалах</button>
                       <button type="button" class="btn btn-primary btn-cons" onclick="uPage.close('window_pollRegister');return false;">Хаах</button>
                     </div>
                   </div>

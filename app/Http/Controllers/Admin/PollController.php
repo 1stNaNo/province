@@ -34,39 +34,61 @@ class PollController extends Controller
     }
 
     public function save(Request $request){
+      $langs = Language::all();
+
       $incr = new Incr;
       $incr->value=1;
       $incr->save();
+      $q_source_default = "";
+      foreach($langs as $lang){
+        if(!empty(preg_replace('/\s+/', '', $request->question[$lang->lang_key])))
+          $q_source_default = $request->question[$lang->lang_key];
+      }
 
-      
-
-      foreach($request->question as $key => $value){
+      foreach($langs as $lang){
         $s_title = new Source;
-        $s_title->source = $value;
-        $s_title->lang = $key;
+        if(!empty(preg_replace('/\s+/', '', $request->question[$lang->lang_key])))
+          $s_title->source = $request->question[$lang->lang_key];
+        else
+          $s_title->source = $q_source_default;
+        $s_title->lang = $lang->lang_key;
         $s_title->code = $incr->id;
         $s_title->kind = 'poll';
         $s_title->save();
       }
       //DISABLING OLD POLLS
-      $polls = Poll::all();
-      foreach ($polls as $poll) {
-        $poll->active_flag = 0;
-        $poll->save();
+      if(!empty($request->active_flag)){
+        $polls = Poll::all();
+        foreach ($polls as $poll) {
+          $poll->active_flag = 0;
+          $poll->save();
+        }
       }
 
       $poll = new Poll;
       $poll->title_sid = $incr->id;
-      $poll->active_flag = 1;
+      if(empty($request->active_flag))
+        $poll->active_flag = 0;
+      else
+        $poll->active_flag = 1;
+
       $poll->save();
       for ($i = 0; $i < count($request->answer); $i++) {
+        $a_source_default = "";
+        foreach($langs as $lang){
+          if(!empty(preg_replace('/\s+/', '', $request->answer[$i][$lang->lang_key])))
+            $a_source_default = $request->answer[$i][$lang->lang_key];
+        }
         $incr = new Incr;
         $incr->value=1;
         $incr->save();
-        foreach($request->answer[$i] as $key => $value){
+        foreach($langs as $lang){
           $s_title = new Source;
-          $s_title->source = $value;
-          $s_title->lang = $key;
+          if(!empty(preg_replace('/\s+/', '', $request->answer[$i][$lang->lang_key])))
+            $s_title->source = $request->answer[$i][$lang->lang_key];
+          else
+            $s_title->source = $a_source_default;
+          $s_title->lang = $lang->lang_key;
           $s_title->code = $incr->id;
           $s_title->kind = 'answer';
           $s_title->save();
