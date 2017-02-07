@@ -5,8 +5,7 @@
   <input type="hidden" class="prev_window"/>
   <form id="newscat_form" action="savenewscat" method="POST">
   <div class="page-title">
-    <i class="icon-custom-left"></i>
-    <h3> - <span class="semi-bold">{{trans('resource.contentcat.contentcat')}}</span></h3>
+    <h3><span class="semi-bold">{{trans('resource.contentcat.contentcat')}}</span></h3>
   </div>
   <div class="row-fluid">
     <div class="span12">
@@ -34,10 +33,10 @@
                   @else
                     <option value="{{$category->ca_id}}">{{$category->source}}</option>
                   @endif
-                  
+
                 @endforeach
                 </select>
-                
+
               </div>
             </div>
           </div>
