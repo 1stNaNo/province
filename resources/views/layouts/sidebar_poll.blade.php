@@ -1,3 +1,4 @@
+@if(!empty($poll))
 <div class="poling-widget">
     <div class="pst-block">
         <div class="pst-block-head">
@@ -46,3 +47,4 @@
         }
     </script>
 </div>
+@endif

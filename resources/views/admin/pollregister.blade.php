@@ -44,13 +44,13 @@
                               <input type="text" class="span12" name="answer[0][{{$lang->lang_key}}]" lang="{{$lang->lang_key}}"/>
                             </div>
                           </div>
-                        </div>   
+                        </div>
 
                       </div>
                     @endforeach
                     <div class="row-fluid">
                       <div class="span8">
-                        <button type="button" class="btn btn-primary btn-cons pull-right remove-btn" style="display: none;" onclick="removeAnswer(this); return false;">-</button>  
+                        <button type="button" class="btn btn-primary btn-cons pull-right remove-btn" style="display: none;" onclick="upoll.removeAnswer(this); return false;">-</button>
                       </div>
                     </div>
                   </div>
@@ -61,10 +61,10 @@
                   <div class="span8">
                     <div class="control-group">
                       <div class="controls">
-                        <button type="button" class="btn btn-primary btn-cons pull-right" onclick="addAnswer(); return false;">+</button>
+                        <button type="button" class="btn btn-primary btn-cons pull-right" onclick="upoll.addAnswer(); return false;">+</button>
                       </div>
                     </div>
-                  </div>                
+                  </div>
 
                 </div>
 
@@ -89,25 +89,5 @@
         </div>
       </div>
     </div>
-
-    <script type="text/javascript">
-      function addAnswer(){
-        $(".answer-container").find('.sub-container:last').find('button').each(function(){
-          $(this).hide();
-        });
-        var $item = $(".answer-container").find('.sub-container:last').clone();
-        $item.find("input").each(function(){
-          $(this).val("").attr('name', 'answer['+$(".sub-container").length+']['+$(this).attr('lang')+']');
-        });
-        $item.find('button.remove-btn').show();
-        $(".answer-container").append($item);
-      }
-
-      function removeAnswer(obj){
-        $(obj).closest('.sub-container').remove();
-        if($(".sub-container").length > 1)
-          $(".answer-container").find('.sub-container:last').find('button.remove-btn').show();
-      }
-    </script>
   </form>
 </div>

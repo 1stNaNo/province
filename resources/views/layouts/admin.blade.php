@@ -27,6 +27,7 @@
   var mainres = {};
   mainres.active = '{!! trans('resource.main.active') !!}';
   mainres.deactive = '{{trans('resource.main.deactive')}}';
+  mainres.confirm = '{{trans('resource.confirm')}}';
 
   var weblinkres = {};
   weblinkres.sums = '{!! trans('resource.weblinks.sums') !!}';
@@ -38,6 +39,12 @@
   decisions.kindnega = '{!! trans('resource.decision.negative') !!}';
   decisions.done = '{!! trans('resource.decision.done') !!}';
   decisions.undone = '{!! trans('resource.decision.undone') !!}';
+
+  var polls = {};
+  polls.active = '{!! trans('resource.poll.active') !!}';
+  polls.inactive = '{!! trans('resource.poll.inactive') !!}';
+  polls.makeactive = '{!! trans('resource.poll.makeactive') !!}';
+  polls.makeinactive = '{!! trans('resource.poll.makeinactive') !!}';
 </script>
 
 <!-- BEGIN PLUGIN CSS -->

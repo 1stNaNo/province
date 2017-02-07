@@ -75,6 +75,7 @@ Route::get('/admin/pollList', 'Admin\PollController@pollsList');
 Route::post('/admin/pollregister', 'Admin\PollController@pollregister');
 Route::post('/admin/pollsave', 'Admin\PollController@save');
 Route::post('/admin/activepoll', 'Admin\PollController@activepoll');
+Route::post('/admin/inactivepoll', 'Admin\PollController@inactivepoll');
 
 Route::post('/submitpoll', 'PollController@submitpoll');
 

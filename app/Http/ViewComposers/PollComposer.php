@@ -38,7 +38,8 @@ class PollComposer
     public function compose(View $view)
     {
       $poll = Vw_poll::where('active_flag', 1)->where('lang', Session::get('lang'))->first();
-      $answers = Vw_answer::where('poll_id', $poll->id)->where('lang', Session::get('lang'))->get();
+      if(!empty($poll))
+        $answers = Vw_answer::where('poll_id', $poll->id)->where('lang', Session::get('lang'))->get();
 
       return $view->with(compact('poll'))->with(compact('answers'));
     }

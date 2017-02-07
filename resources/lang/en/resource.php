@@ -44,6 +44,7 @@ return [
     'enterEmail' => 'Enter email',
     'enterComplaints' => 'Enter complaints',
     'saved' => 'Succesfully saved',
+    'confirm' => 'Are you sure?',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',
@@ -113,7 +114,12 @@ return [
       'question' => 'Question',
       'answer' => 'Answer',
       'givepoll' => 'Submit',
-      'img' => 'Image'
+      'img' => 'Image',
+      'status' => 'Status',
+      'active' => 'Active',
+      'inactive' => 'Inactive',
+      'makeactive' => 'Active',
+      'makeinactive' => 'Inactive'
     ],
     'main' => [
       'insert_date' => 'Publish date',

@@ -43,7 +43,7 @@ class PollController extends Controller
         $s_title->source = $value;
         $s_title->lang = $key;
         $s_title->code = $incr->id;
-        $s_title->kind = 'poll';  
+        $s_title->kind = 'poll';
         $s_title->save();
       }
       //DISABLING OLD POLLS
@@ -66,7 +66,7 @@ class PollController extends Controller
           $s_title->source = $value;
           $s_title->lang = $key;
           $s_title->code = $incr->id;
-          $s_title->kind = 'answer';  
+          $s_title->kind = 'answer';
           $s_title->save();
         }
 
@@ -89,6 +89,14 @@ class PollController extends Controller
 
       $poll = Poll::find($request->poll_id);
       $poll->active_flag = 1;
+      $poll->save();
+
+      return $poll;
+    }
+
+    public function inactivepoll(Request $request){
+      $poll = Poll::find($request->poll_id);
+      $poll->active_flag = 0;
       $poll->save();
 
       return $poll;
