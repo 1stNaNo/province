@@ -135,7 +135,8 @@ return [
       'number' => 'Дугаар',
       'confirm_date' => 'Баталсан огноо',
       'external' => 'Нэмэлт мэдээ',
-      'count' => 'Тоо'
+      'count' => 'Тоо',
+      'exit' => 'Гарах'
     ],
     'message' =>[
       'deleted' => 'Амжилттай устагдлаа',

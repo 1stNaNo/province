@@ -135,7 +135,8 @@ return [
       'number' => 'Number',
       'confirm_date' => 'Confirm date',
       'external' => 'External news',
-      'count' => 'Count'
+      'count' => 'Count',
+      'exit' => 'Logout'
     ],
     'message' =>[
       'deleted' => 'Succesfully deleted',

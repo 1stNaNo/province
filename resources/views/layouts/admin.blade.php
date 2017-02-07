@@ -106,9 +106,9 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="">
-{{-- <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
-</form> --}}
+</form>
 <div class="page-container row-fluid">
   <!-- BEGIN SIDEBAR -->
   {{-- <div class="page-sidebar" id="main-menu">
@@ -223,6 +223,11 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/filetype">{{trans('resource.file.type')}}</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/file">{{trans('resource.file.file')}}</a></li>
       </ul>
+    </div>
+    <div class="dropdown menu">
+      <button onclick="$('#logout-form').submit()" class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+          {{trans('resource.main.exit')}}
+      </button>
     </div>
 
 
