@@ -161,9 +161,14 @@
       </button>
     </div>
     <div class="dropdown menu">
-      <button onclick="window.location.href='/admin/news'" class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+      <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
           {{trans('resource.news.title')}}
+          <span class="caret"></span></button>
       </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/news">{{trans('resource.news.title')}}</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/external">{{trans('resource.main.external')}}</a></li>
+      </ul>
     </div>
     <div class="dropdown menu">
       <button onclick="window.location.href='/admin/weblink'" class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">

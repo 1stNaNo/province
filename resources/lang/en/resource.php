@@ -133,7 +133,9 @@ return [
       'home'=> 'Home page',
       'icon' => 'Icon',
       'number' => 'Number',
-      'confirm_date' => 'Confirm date'
+      'confirm_date' => 'Confirm date',
+      'external' => 'External news',
+      'count' => 'Count'
     ],
     'message' =>[
       'deleted' => 'Succesfully deleted',

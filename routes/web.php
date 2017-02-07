@@ -138,7 +138,7 @@ Route::get('/admin/filetype/data', 'Admin\FileTypeController@anyData');
 
 // ---- END FILE TYPE CATEGORY -------------
 
-// ---- BEGIN FILE CATEGORY -------------
+// ---- BEGIN FILE -------------
 
 Route::get('/admin/file', 'Admin\UFileController@index');
 Route::post('/admin/file/index', 'Admin\UFileController@indexA');
@@ -148,7 +148,19 @@ Route::post('/admin/file/remove', 'Admin\UFileController@remove');
 Route::get('/admin/file/data', 'Admin\UFileController@anyData');
 
 
-// ---- END FILE CATEGORY -------------
+// ---- END FILE -------------
+
+// ---- BEGIN EXTERNAL -------------
+
+Route::get('/admin/external', 'Admin\ExternalController@index');
+Route::post('/admin/external/index', 'Admin\ExternalController@indexA');
+Route::post('/admin/external/save', 'Admin\ExternalController@save');
+Route::post('/admin/external/remove', 'Admin\ExternalController@remove');
+
+Route::get('/admin/external/data', 'Admin\ExternalController@anyData');
+
+
+// ---- END EXTERNAL -------------
 
 // ---- BEGIN FILE LINKS -------------
 
