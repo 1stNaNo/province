@@ -38,6 +38,8 @@ class PollController extends Controller
       $incr->value=1;
       $incr->save();
 
+      
+
       foreach($request->question as $key => $value){
         $s_title = new Source;
         $s_title->source = $value;
