@@ -11,11 +11,11 @@
       </div>
       <div class="grid-body ">
         <div style="display: none;" class="ucolumn-cont" data-table="shorter_grid">
-          <ucolumn name="id" source="id"/>
           <ucolumn name="source" source="source"/>
           <ucolumn name="url" source="url"/>
           <ucolumn name="target" source="target" utype="formatter" func="ushorter.formatTarget"/>
           <ucolumn name="show" source="show" utype="formatter" func="ushorter.formatStatus"/>
+          <ucolumn name="id" source="id" utype="formatter" func="ushorter.formatEditBtn"/>
         </div>
         <table action="shorter/data" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-condensed" id="shorter_grid" width="100%">
           <thead>
@@ -38,7 +38,6 @@
 
       var buttons = [];
       buttons.push('<button onclick="ushorter.add()" class="btn btn-primary" style="margin-left:12px">{{trans('resource.buttons.add')}}</button>');
-      buttons.push('<button onclick="ushorter.edit()" class="btn btn-warning" style="margin-left:12px">{{trans('resource.buttons.edit')}}</button>');
       // buttons.push('<button onclick="ucategory.remove()" class="btn btn-danger" style="margin-left:12px">{{trans('resource.buttons.remove')}}</button>');
 
       baseGridFunc.init("shorter_grid", buttons);
@@ -50,11 +49,11 @@
           uPage.call('shorter/index',null);
         },
 
-        edit: function(){
+        edit: function(id){
 
             var postData = {};
             postData['isEdit'] = true;
-            postData['id'] = baseGridFunc.getSelectedRow('shorter_grid', 'id');
+            postData['id'] = id;
             if(postData['id'] != ""){
                 uPage.call('shorter/index',postData);
             }
@@ -112,6 +111,9 @@
           }else{
             return "";
           }
+        },
+        formatEditBtn(data, type, row){
+          return '<button onclick="ushorter.edit('+data+')" class="btn btn-warning" style="margin-left:12px">{{trans('resource.buttons.edit')}}</button>';
         }
    }
 </script>
