@@ -126,6 +126,30 @@ Route::get('/admin/shorter/data', 'Admin\ShorterController@anyData');
 Route::get('/admin/newscat', 'Admin\NewsCatController@index');
 Route::post('/admin/savenewscat', 'Admin\NewsCatController@save');
 
+// ---- BEGIN FILE TYPE CATEGORY -------------
+
+Route::get('/admin/filetype', 'Admin\FileTypeController@index');
+Route::post('/admin/filetype/index', 'Admin\FileTypeController@indexA');
+Route::post('/admin/filetype/save', 'Admin\FileTypeController@save');
+Route::post('/admin/filetype/remove', 'Admin\FileTypeController@remove');
+
+Route::get('/admin/filetype/data', 'Admin\FileTypeController@anyData');
+
+
+// ---- END FILE TYPE CATEGORY -------------
+
+// ---- BEGIN FILE CATEGORY -------------
+
+Route::get('/admin/file', 'Admin\UFileController@index');
+Route::post('/admin/file/index', 'Admin\UFileController@indexA');
+Route::post('/admin/file/save', 'Admin\UFileController@save');
+Route::post('/admin/file/remove', 'Admin\UFileController@remove');
+
+Route::get('/admin/file/data', 'Admin\UFileController@anyData');
+
+
+// ---- END FILE CATEGORY -------------
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

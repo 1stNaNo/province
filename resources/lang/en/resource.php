@@ -130,7 +130,10 @@ return [
       'fblink' => 'http://facebook.com',
       'shorter' => 'Shorter',
       'conf'=>'Configure',
-      'home'=> 'Home page'
+      'home'=> 'Home page',
+      'icon' => 'Icon',
+      'number' => 'Number',
+      'confirm_date' => 'Confirm date'
     ],
     'message' =>[
       'deleted' => 'Succesfully deleted',
@@ -150,7 +153,8 @@ return [
     'file'=>[
       'type' => 'Type',
       'files' => 'Files',
-      'file' => 'File'
+      'file' => 'File',
+      'show' => 'Show'
     ],
     'conf' => [
       'uploadPath' => 'img/uploaded/',

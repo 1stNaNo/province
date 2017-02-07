@@ -213,8 +213,8 @@
       <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">{{trans('resource.file.files')}}
       <span class="caret"></span></button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/upload/1">{{trans('resource.file.type')}}</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/upload/2">{{trans('resource.file.file')}}</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/filetype">{{trans('resource.file.type')}}</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/file">{{trans('resource.file.file')}}</a></li>
       </ul>
     </div>
 
