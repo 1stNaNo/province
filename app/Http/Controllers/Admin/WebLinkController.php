@@ -27,13 +27,28 @@ class WebLinkController extends Controller
     }
 
     public function register(Request $request){
+
     	$langs = Language::all();
+
+			$source = collect([]);
+
+			$weblinks = null;
+
     	if($request->isEdit && !empty($request->id)){
-    		$weblinksmn = Vw_weblinks::where('id', $request->id)->where('lang', 'mn')->get();
-    		$weblinksen = Vw_weblinks::where('id', $request->id)->where('lang', 'en')->get();
-    		return view('admin.weblink')->with(compact('weblinksen'))->with(compact("weblinksmn"))->with(compact('langs'));
+
+				foreach($langs as $lang){
+						$wblinks = Vw_weblinks::where('id', $request->id)->where('lang', $lang->lang_key)->first();
+
+						if(count($wblinks) > 0){
+							$weblinks = $wblinks;
+						}
+
+						$source->put($lang->lang_key, $wblinks);
+				}
+
+    		return view('admin.weblink')->with(compact('weblinks'))->with(compact('langs'));
     	}
-    	return view('admin.weblink')->with(compact('langs'));
+    	return view('admin.weblink')->with(compact('langs'))->with(compact('source'));
     }
 
     public function save(Request $request){

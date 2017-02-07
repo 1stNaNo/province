@@ -28,6 +28,11 @@
   mainres.active = '{!! trans('resource.main.active') !!}';
   mainres.deactive = '{{trans('resource.main.deactive')}}';
 
+  var weblinkres = {};
+  weblinkres.sums = '{!! trans('resource.weblinks.sums') !!}';
+  weblinkres.agency = '{{trans('resource.weblinks.agency')}}';
+  weblinkres.others = '{{trans('resource.weblinks.others')}}';
+
 </script>
 
 <!-- BEGIN PLUGIN CSS -->

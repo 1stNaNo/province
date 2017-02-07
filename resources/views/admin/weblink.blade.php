@@ -2,9 +2,7 @@
 <div id="window_weblinkRegister" class="page-window">
   <form class="form-horizontal" method="POST" role="form" action="{{ url('/admin/weblinksave') }}" id="weblinkRegister_form" style="width:100%; height: 100%">
     <input type="hidden" class="prev_window"/>
-    <input type="hidden" name="id" value="@if(!empty($weblinksmn[0]->id)){{$weblinksmn[0]->id}}@endif"/>
-    <input type="hidden" name="titlemn" value="@if(!empty($weblinksmn[0]->source)){{$weblinksmn[0]->source}}@endif"/>
-    <input type="hidden" name="titleen" value="@if(!empty($weblinksen[0]->source)){{$weblinksen[0]->source}}@endif"/>
+    <input type="hidden" name="id" value="{{ (count($weblinks) > 0) ? $weblinks->id : ''}}"/>
     <div class="page-title">
       <i class="icon-custom-left"></i>
       <h3> - <span class="semi-bold">{{trans('resource.weblinks.addweblink')}}</span></h3>
@@ -12,11 +10,6 @@
     <div class="row-fluid">
       <div class="row-fluid">
         <div class="span12">
-          @foreach($langs as $lang)
-
-          <input type="hidden" class="langs" value="{{$lang->lang_key}}" />
-
-          @endforeach
           <div class="grid simple ">
             <div class="grid-title">
               <h4><span class="semi-bold">{{trans('resource.weblinks.addweblink')}}</span></h4>
@@ -27,12 +20,14 @@
                 <div class="row-fluid">
 
                   <div class="span8">
-                    <div class="control-group">
-                      <label class="control-label">{{trans('resource.weblinks.title')}}</label>
-                      <div class="controls">
-                        <input type="text" class="span12" name="title" class=""/>
+                    @foreach($langs as $lang)
+                      <div class="control-group">
+                        <label class="control-label">{{trans('resource.weblinks.title')}}</label>
+                        <div class="controls">
+                          <input type="hidden" name="title[{{$lang->lang_key}}]" value="{{ (count($source->get($item->lang_key)) > 0) ? $source->get($item->lang_key)->source : '' }}"/>
+                        </div>
                       </div>
-                    </div>
+                    @endforeach
                   </div>
 
                 </div>
@@ -46,10 +41,16 @@
                   <div class="control-group">
                     <label class="control-label">{{trans('resource.weblinks.category')}}</label>
                     <div class="controls">
-                      <select name="category_id" value="@if(!empty($weblinksen[0]->category_id)){{$weblinksen[0]->category_id}}@endif">
-                        <option value="1">Сумууд</option>
-                        <option value="2">Хэлтэс Агентлаг</option>
-                        <option value="3">Бусад</option>
+                      <select name="category_id">
+                        @if(count($weblinks) > 0)
+                            <option {{($weblinks->category_id == 1) ? 'selected="selected"' : ''}} value="1">{{trans('resource.weblinks.sums')}}</option>
+                            <option {{($weblinks->category_id == 2) ? 'selected="selected"' : ''}} value="2">{{trans('resource.weblinks.agency')}}</option>
+                            <option {{($weblinks->category_id == 3) ? 'selected="selected"' : ''}} value="3">{{trans('resource.weblinks.others')}}</option>
+                        @else
+                          <option value="1">{{trans('resource.weblinks.sums')}}</option>
+                          <option value="2">{{trans('resource.weblinks.agency')}}</option>
+                          <option value="3">{{trans('resource.weblinks.others')}}</option>
+                        @endif
                       </select>
                     </div>
                   </div>
@@ -64,7 +65,7 @@
                   <div class="control-group">
                     <label class="control-label">{{trans('resource.weblinks.link')}}</label>
                     <div class="controls">
-                      <input type="text" class="span12" name="link" value="@if(!empty($weblinksen[0]->link)){{$weblinksen[0]->link}}@endif"/>
+                      <input type="text" class="span12" name="link" value="{{ (count($weblinks) > 0) ? $weblinks->link : '' }}"/>
                     </div>
                   </div>
                 </div>
@@ -78,13 +79,9 @@
                   <div class="control-group">
                     <label class="control-label">{{trans('resource.weblinks.img')}}</label>
                     <div class="controls">
-                      <input type="text" class="span12" name="img" id="img" value="@if(!empty($weblinksen[0]->img)){{$weblinksen[0]->img}}@endif" />
-                      <a href="#uMainModal" data-toggle="modal" onclick="uPage.call('/admin/gallery/thumbnail',{'type': 'modal', 'inputid': 'img'})">
-                        <span class="add-on">
-                          <span class="arrow"></span>
-                          <i class="icon-picture"></i>
-                        </span>
-                      </a>
+                      <img src="{{ (count($weblinks) > 0) ? $weblinks->img : '' }}" style="width: 115px; height: 85px;"/>
+                      <input type="file" name="img_hidden" value="{{ (count($weblinks) > 0) ? $weblinks->img : '' }}"/>
+                      <input type="file" name="img"/>
                     </div>
                   </div>
                 </div>

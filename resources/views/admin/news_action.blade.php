@@ -39,17 +39,17 @@
               <div class="control-group">
                 <div class="controls">
                   <select id="category" name="category" style="width:100%">
-                    @if(count($newscat) > 0)
-                      @foreach($category as $item)
-                          @if($newscat->cat_id == $item->ca_id)
-                              <option selected="selected" value="{{$item->ca_id}}">{{$item->source}}</option>
-                          @else
-                              <option value="{{$item->ca_id}}">{{$item->source}}</option>
-                          @endif
-                      @endforeach
-                    @else
-                        <option value="{{$item->ca_id}}">{{$item->source}}</option>
-                    @endif
+                    @foreach($category as $item)
+                      @if(count($newscat) > 0)
+                            @if($newscat->cat_id == $item->ca_id)
+                                <option selected="selected" value="{{$item->ca_id}}">{{$item->source}}</option>
+                            @else
+                                <option value="{{$item->ca_id}}">{{$item->source}}</option>
+                            @endif
+                      @else
+                          <option value="{{$item->ca_id}}">{{$item->source}}</option>
+                      @endif
+                    @endforeach
                   </select>
                 </div>
               </div>
@@ -63,7 +63,7 @@
                           <input id="checkbox7" name="slide" value="1" type="checkbox">
                         @endif
                       @else
-                          <input id="checkbox7" name="slide" value="1" checked="checked" type="checkbox">
+                          <input id="checkbox7" name="slide" value="1" type="checkbox">
                       @endif
                       <label for="checkbox7">{{trans('resource.news.publish')}}</label>
                   </div>

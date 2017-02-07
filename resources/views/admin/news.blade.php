@@ -2,20 +2,16 @@
 
 @section('content')
 <div id="window_newsList" class="page-window active-window">
-  <div class="page-title">
-  <i class="icon-custom-left"></i>
-  <h3> - <span class="semi-bold">{{trans('resource.category.title')}}</span></h3>
-  </div>
   <div class="row-fluid">
   <div class="span12">
     <div class="grid simple ">
       <div class="grid-title">
-        <h4><span class="semi-bold">{{trans('resource.category.list')}}</span></h4>
+        <h4><span class="semi-bold">{{trans('resource.news.title')}}</span></h4>
         <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" onclick="baseGridFunc.reload('category_grid')" class="reload"></a> </div>
       </div>
       <div class="grid-body ">
         <div style="display: none;" class="ucolumn-cont" data-table="news_grid">
-          <ucolumn name="id" source="id"/>
+          <ucolumn name="id" source="id" visible="false"/>
           <ucolumn name="title" source="title"/>
           <ucolumn name="ca_title" source="ca_title"/>
           <ucolumn name="comment_count" source="comment_count"/>
@@ -75,7 +71,11 @@
               data['content'] = {}
 
               $("usource").find("item").each(function(){
-                  data['content'][$(this).attr('name')] = $("#content_"+ $(this).attr('name')).summernote("code");
+                  var tmpVal = $("#content_"+ $(this).attr('name')).summernote("code");
+                  if(tmpVal == "<br>"){
+                    tmpVal = "";
+                  }
+                  data['content'][$(this).attr('name')] = tmpVal;
               });
 
               $.ajax({

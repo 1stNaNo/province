@@ -73,18 +73,21 @@ class NewsController extends Controller
 
       $validate = [];
       $validate["title.".$langs[0]->lang_key] = "required";
+      $validate["content.".$langs[0]->lang_key] = "required";
+      $validate["thumbnail"] = "required";
 
       $validator = \Validator::make($request->all(), $validate);
 
       if($validator->fails()){
         return response()->json($validator->messages(), 200);
       }else{
+
         foreach($langs as $lang){
             if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
                 $lcl_title = $request->title[$lang->lang_key];
             }
 
-            if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+            if(!empty(preg_replace('/\s+/', '', $request->content[$lang->lang_key]))){
                 $lcl_content = $request->content[$lang->lang_key];
             }
         }
@@ -97,10 +100,15 @@ class NewsController extends Controller
             $news = News::find($request->id);
 
             foreach($langs as $lang){
-                $t_source = Source::byCode($news->title_sid, $lang->lang_key)->get();
-                $c_source = Source::byCode($news->content_sid, $lang->lang_key)->get();
-                $t_source = $t_source[0];
-                $c_source = $c_source[0];
+                $t_source = Source::byCode($news->title_sid, $lang->lang_key)->first();
+                $c_source = Source::byCode($news->content_sid, $lang->lang_key)->first();
+
+                if(count($t_source) <= 0){
+                  $t_source = new Source;
+                  $t_source->code = $news->title_sid;
+                  $t_source->lang = $lang->lang_key;
+                  $t_source->kind = 'title';
+                }
 
                 if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
                     $t_source->source = $request->title[$lang->lang_key];
@@ -110,7 +118,14 @@ class NewsController extends Controller
 
                 $t_source->save();
 
-                if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+                if(count($c_source) <= 0){
+                  $c_source = new Source;
+                  $c_source->code = $news->content_sid;
+                  $c_source->lang = $lang->lang_key;
+                  $c_source->kind = 'news';
+                }
+
+                if(!empty(preg_replace('/\s+/', '', $request->content[$lang->lang_key]))){
                       $c_source->source = $request->content[$lang->lang_key];
                 }else{
                       $c_source->source = $lcl_content;
@@ -148,7 +163,7 @@ class NewsController extends Controller
 
                 $t_source =  new Source;
 
-                if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+                if(!empty(preg_replace('/\s+/', '', $request->content[$lang->lang_key]))){
                       $t_source->source = $request->content[$lang->lang_key];
                 }else{
                       $t_source->source = $lcl_content;

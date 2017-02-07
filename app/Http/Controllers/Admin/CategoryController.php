@@ -86,10 +86,10 @@ class CategoryController extends Controller
                 $t_source = Source::byCode($category->title_sid, $lang->lang_key)->first();
 
                 if(count($t_source) <= 0){
+                  $t_source = new Source;
                   $t_source->code = $category->sid;
                   $t_source->lang = $lang->lang_key;
                   $t_source->kind = 'category';
-                  $t_source->save();
                 }
 
                 if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){

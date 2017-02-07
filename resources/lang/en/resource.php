@@ -93,7 +93,10 @@ return [
         'title' => 'Title',
         'link' => 'Link',
         'addweblink' => 'Add Web Link',
-        'img' => 'Зураг'
+        'img' => 'Image',
+        'sums' => 'Sum',
+        'agency' => 'Agency',
+        'others' => 'Links'
     ],
     'decision' => [
       'menu' => 'Decision',

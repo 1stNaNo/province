@@ -3,10 +3,6 @@
 @section('content')
 <div id="window_weblinkList" class="page-window active-window">
   <input type="hidden" class="prev_window"/>
-  <div class="page-title">
-    <i class="icon-custom-left"></i>
-    <h3> - <span class="semi-bold">{{trans('resource.weblinks.weblinktitle')}}</span></h3>
-  </div>
   <div class="row-fluid">
     <div class="span12">
       <div class="grid simple ">
@@ -16,10 +12,12 @@
         </div>
         <div class="grid-body ">
           <div style="display: none;" class="ucolumn-cont" data-table="weblinks_grid">
-            <ucolumn name="id" source="id"/>
-            <ucolumn name="category_id" source="category_id"/>
+            <ucolumn name="id" source="id" visible="false"/>
+            <ucolumn name="category_id" source="category_id" utype="formatter" func="uweblinks.categoryFormatter"/>
             <ucolumn name="source" source="source"/>
             <ucolumn name="link" source="link"/>
+            <ucolumn width="50px" name="edit_btn" source="edit_btn" utype="btn" func="uweblinks.edit" uclass="btn-warning" utext="{{trans('resource.buttons.edit')}}"></ucolumn>
+            <ucolumn width="50px" name="remove_btn" source="remove_btn" utype="btn" func="uweblinks.remove" uclass="btn-danger" utext="{{trans('resource.buttons.remove')}}"></ucolumn>
           </div>
           <table action="weblinklist" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-condensed" id="weblinks_grid" width="100%">
             <thead>
@@ -28,6 +26,8 @@
                 <th>{{trans('resource.weblinks.category')}}</th>
                 <th>{{trans('resource.weblinks.title')}}</th>
                 <th>{{trans('resource.weblinks.link')}}</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
           </table>
@@ -39,8 +39,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var buttons = [];
-    buttons.push('<div class="table-tools-actions"><button onclick="removeWebLink(); return false;" class="btn btn-primary pull-right" style="margin-left:12px" id="">{{trans('resource.buttons.remove')}}</button></div><div class="table-tools-actions"><button onclick="addWeblink(true); return false;" class="btn btn-primary pull-right" style="margin-left:12px" id="">{{trans('resource.buttons.edit')}}</button></div><div class="table-tools-actions"><button onclick="addWeblink(false); return false;" class="btn btn-primary pull-right" style="margin-left:12px" id="">{{trans('resource.buttons.add')}}</button></div>');
-    buttons.push();
+    buttons.push('<button onclick="addWeblink(false); return false;" class="btn btn-primary pull-left" style="margin-left:12px" id="">{{trans('resource.buttons.add')}}</button>');
 
     baseGridFunc.init("weblinks_grid", buttons);
   });
@@ -64,6 +63,77 @@
         });
       }
     }
+  }
+
+  var uweblinks = {
+    add: function(){
+        var postData = {};
+        uPage.call('weblinkregister',postData);
+      },
+
+      edit: function(gridId ,elmnt){
+
+          var rowData = baseGridFunc.getRowData(gridId ,elmnt);
+
+          var postData = {};
+          postData['isEdit'] = true;
+          postData['id'] = rowData.id;
+
+          uPage.call('weblinkregister',postData);
+      },
+
+      save: function(){
+          var data = $("#category_action_form").serializeObject();
+
+          $.ajax({
+              url: '/admin/category/save',
+              type: "POST",
+              dataType: "json",
+              data : data,
+              success: function(data){
+                  if(data.type == 'success'){
+                    alert(messages.saved);
+                    uPage.close('window_categoryIndex');
+                    baseGridFunc.reload("weblinks_grid");
+                  }else{
+                      uvalidate.setErrors(data);
+                  }
+              }
+          });
+      },
+
+      remove: function(gridId ,elmnt){
+
+        var rowData = baseGridFunc.getRowData(gridId ,elmnt);
+
+        var postData = {};
+        postData['id'] = rowData.ca_id;
+        $.ajax({
+            url: '/admin/category/remove',
+            type: "POST",
+            dataType: "json",
+            data : postData,
+            success: function(data){
+                if(data.type == 'success'){
+                  alert(messages.removed);
+                  baseGridFunc.reload("weblinks_grid");
+                }
+            }
+        });
+      },
+      categoryFormatter: function(data, type, row){
+        var retVal = "";
+
+        if(data == 1){
+            retVal = weblinkres.sums;
+        }else if(data == 2){
+          retVal = weblinkres.agency;
+        }else{
+          retVal = weblinkres.others;
+        }
+
+        return retVal;
+      },
   }
 
 </script>
