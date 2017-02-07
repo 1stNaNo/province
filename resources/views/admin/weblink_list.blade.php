@@ -44,29 +44,8 @@
     baseGridFunc.init("weblinks_grid", buttons);
   });
 
-  function addWeblink(isEdit){
-    if(isEdit){
-      var id = baseGridFunc.getSelectedRow("weblinks_grid", "id");
-      if(id != undefined && id != null)
-        uPage.call('/admin/weblinkregister', {"id" : id, "isEdit" : isEdit}, false);
-    }else{
-      uPage.call('/admin/weblinkregister', null, false);
-    }
-  }
-
-  function removeWebLink(){
-    var id = baseGridFunc.getSelectedRow("weblinks_grid", "id");
-    if(id != undefined && id != null){
-      if(confirm("Устгахдаа итгэлтэй байна уу?")){
-        $.post("/admin/weblinkremove", {'id' : id}, function(){
-          baseGridFunc.reload('weblinks_grid');
-        });
-      }
-    }
-  }
-
   var uweblinks = {
-    add: function(){
+      add: function(){
         var postData = {};
         uPage.call('weblinkregister',postData);
       },
@@ -83,17 +62,18 @@
       },
 
       save: function(){
-          var data = $("#category_action_form").serializeObject();
 
           $.ajax({
-              url: '/admin/category/save',
+              url: 'weblinksave',
               type: "POST",
               dataType: "json",
-              data : data,
+              data : new FormData($("#weblinkRegister_form")[0]),
+              processData: false,  // tell jQuery not to process the data
+              contentType: false,  // tell jQuery not to set contentType
               success: function(data){
                   if(data.type == 'success'){
                     alert(messages.saved);
-                    uPage.close('window_categoryIndex');
+                    uPage.close('window_weblinkRegister');
                     baseGridFunc.reload("weblinks_grid");
                   }else{
                       uvalidate.setErrors(data);
@@ -107,9 +87,9 @@
         var rowData = baseGridFunc.getRowData(gridId ,elmnt);
 
         var postData = {};
-        postData['id'] = rowData.ca_id;
+        postData['id'] = rowData.id;
         $.ajax({
-            url: '/admin/category/remove',
+            url: 'weblinkremove',
             type: "POST",
             dataType: "json",
             data : postData,

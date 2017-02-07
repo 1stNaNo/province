@@ -145,5 +145,9 @@ return [
       'type' => 'Type',
       'files' => 'Files',
       'file' => 'File'
+    ],
+    'conf' => [
+      'uploadPath' => 'img/uploaded/',
+      'readPath' => '/img/uploaded/'
     ]
 ];

@@ -8,6 +8,8 @@ use App\Models\Weblink;
 use App\Models\Language;
 use App\Models\Incr;
 use App\Models\Source;
+use App\Models\ImgSeq;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\Controller;
 use Datatables;
 use Validator;
@@ -46,63 +48,119 @@ class WebLinkController extends Controller
 						$source->put($lang->lang_key, $wblinks);
 				}
 
-    		return view('admin.weblink')->with(compact('weblinks'))->with(compact('langs'));
     	}
-    	return view('admin.weblink')->with(compact('langs'))->with(compact('source'));
+    	return view('admin.weblink')->with(compact('langs'))->with(compact('source'))->with(compact('weblinks'));
     }
 
     public function save(Request $request){
-    	$v = Validator::make($request->all(), [
-            'link'=>'required',
-        ]);
 
-        if($v->fails()){
-        	return response()->json(['errors'=>$v->messages(), 'status'=>422], 200);
-        }
-        $s = new Source;
-        if(empty($request->id)){
-	        $incr = new Incr;
-	        $incr->value=1;
-	        $incr->save();
-        }
+			$weblink = new Weblink;
 
-    	foreach ($request->title as $key => $value) {
-    		if(!empty($request->id)){
-				$weblink = Weblink::find($request->id);
-		    	$s = Source::where('code', $weblink->title)->where('lang', $key)->get();
-		    	foreach($s as $src){
-		    		$src->source = $value;
-		    		$src->save();
-		    	}
+			// SOURCES PACK
+			$langs = Language::all();
+			$lcl_title = "";
 
-	    	}else{
-        		$s = new Source;
-        		$s->lang = $key;
-	        	$s->source = $value;
-	        	$s->kind = 'weblink';
-	        	$s->code = $incr->id;
-	        	$s->save();
-        	}
+			$validate = [];
+			$validate["title.".$langs[0]->lang_key] = "required";
+			$validate["link"] = "required";
+
+			$validator = \Validator::make($request->all(), $validate);
+
+			if($validator->fails()){
+				return response()->json($validator->messages(), 200);
+			}else{
+
+				if(count($request->img) > 0){
+					$imgSeq = new ImgSeq;
+	        $imgSeq->value = "img";
+	        $imgSeq->save();
+
+	        $fileName = time().$imgSeq->id.'.'.$request->img->getClientOriginalExtension();
+	        // $request->file->move(public_path('img/uploaded/thumbnail'), $fileName);
+
+	        $path = public_path(trans('resource.conf.uploadPath').'links/' . $fileName);
+
+	        Image::make($request->img)->resize(115, 85)->save($path);
+				}
+
+				foreach($langs as $lang){
+						if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+								$lcl_title = $request->title[$lang->lang_key];
+						}
+				}
+
+				if(!empty($request->id)){
+
+						$weblink = Weblink::find($request->id);
+
+						foreach($langs as $lang){
+								$t_source = Source::byCode($weblink->title, $lang->lang_key)->first();
+
+								if(count($t_source) <= 0){
+									$t_source = new Source;
+									$t_source->code = $weblink->title;
+									$t_source->lang = $lang->lang_key;
+									$t_source->kind = 'weblink';
+								}
+
+								if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+										$t_source->source = $request->title[$lang->lang_key];
+								}else{
+										$t_source->source = $lcl_title;
+								}
+
+								$t_source->save();
+						}
+
+				}else{
+						$incr_t = new Incr;
+						$incr_t->value = 1;
+						$incr_t->save();
+
+						foreach($langs as $lang){
+
+								$t_source =  new Source;
+
+								if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+											$t_source->source = $request->title[$lang->lang_key];
+								}else{
+											$t_source->source = $lcl_title;
+								}
+
+								$t_source->code = $incr_t->id;
+								$t_source->lang = $lang->lang_key;
+								$t_source->kind = 'weblink';
+								$t_source->save();
+
+								$t_source =  new Source;
+
+						}
+
+						$weblink->title = $incr_t->id;
+				}
+
+				// BASIC pack
+
+				$weblink->category_id = $request->category_id;
+				$weblink->link = $request->link;
+				if(count($request->img) > 0){
+					$weblink->img = trans('resource.conf.readPath')."links/".$fileName;
+				}else{
+					$weblink->img = $request->img_hidden;
+				}
+
+				$weblink->save();
+
+				return response()->json(['type' => 'success']);
     	}
-		$wl = new Weblink;
-    	if(!empty($request->id)){
-    		$wl = Weblink::find($request->id);
-    	}else{
-    		$wl->title=$incr->id;
-    	}
-        $wl->category_id = $request->category_id;
-        $wl->link = $request->link;
-        $wl->img = $request->img;
-        $wl->save();
-    	return $wl;
-    }
+		}
 
     public function delete(Request $request){
+
     	$weblink = Weblink::find($request->id);
-    	$sources = Source::where("code", $weblink->title)->get();
-    	foreach ($sources as $source) {
-    		$source->delete();
-    	}
+    	Source::deleteByCode($weblink->title);
     	$weblink->delete();
+
+			return response()->json(['type' => 'success']);
     }
 }

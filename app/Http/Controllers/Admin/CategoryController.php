@@ -87,7 +87,7 @@ class CategoryController extends Controller
 
                 if(count($t_source) <= 0){
                   $t_source = new Source;
-                  $t_source->code = $category->sid;
+                  $t_source->code = $category->title_sid;
                   $t_source->lang = $lang->lang_key;
                   $t_source->kind = 'category';
                 }
