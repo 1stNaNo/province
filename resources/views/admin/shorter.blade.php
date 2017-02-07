@@ -2,15 +2,11 @@
 
 @section('content')
 <div id="window_shorterList" class="page-window active-window">
-  <div class="page-title">
-  <i class="icon-custom-left"></i>
-  <h3> - <span class="semi-bold">{{trans('resource.main.shorter')}}</span></h3>
-  </div>
   <div class="row-fluid">
   <div class="span12">
     <div class="grid simple ">
       <div class="grid-title">
-        <h4><span class="semi-bold">{{trans('resource.category.list')}}</span></h4>
+        <h4>{{ trans('resource.main.shorter') }}</h4>
         <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" onclick="baseGridFunc.reload('category_grid')" class="reload"></a> </div>
       </div>
       <div class="grid-body ">
@@ -18,7 +14,8 @@
           <ucolumn name="id" source="id"/>
           <ucolumn name="source" source="source"/>
           <ucolumn name="url" source="url"/>
-          <ucolumn name="target" source="target"/>
+          <ucolumn name="target" source="target" utype="formatter" func="ushorter.formatTarget"/>
+          <ucolumn name="show" source="show" utype="formatter" func="ushorter.formatStatus"/>
         </div>
         <table action="shorter/data" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-condensed" id="shorter_grid" width="100%">
           <thead>
@@ -27,6 +24,7 @@
               <th>{{trans('resource.category.name')}}</th>
               <th>{{trans('resource.category.link')}}</th>
               <th>{{trans('resource.category.target')}}</th>
+              <th>{{trans('resource.poll.status')}}</th>
             </tr>
           </thead>
         </table>
@@ -49,8 +47,7 @@
    var ushorter = {
 
         add: function(){
-          var postData = {};
-          uPage.call('category/index',postData);
+          uPage.call('shorter/index',null);
         },
 
         edit: function(){
@@ -97,6 +94,23 @@
                       }
                   }
               });
+          }
+        },
+        formatTarget : function(data, type, row){
+          if(data == 'blank')
+            return shorters.blank;
+          else if(data == 'self')
+            return shorters.self;
+          else
+            return "";
+        },
+        formatStatus : function(data, type, row){
+          if(data == 1){
+            return polls.active;
+          }else if(data == 0){
+            return polls.inactive;
+          }else{
+            return "";
           }
         }
    }

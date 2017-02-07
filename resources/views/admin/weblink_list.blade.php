@@ -7,7 +7,7 @@
     <div class="span12">
       <div class="grid simple ">
         <div class="grid-title">
-          <h4><span class="semi-bold">{{trans('resource.weblinks.weblinktitle')}}</span></h4>
+          <h4>{{ trans('resource.main.shorter') }}</h4>
           <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" onclick="baseGridFunc.reload('weblinks_grid')" class="reload"></a> </div>
         </div>
         <div class="grid-body ">

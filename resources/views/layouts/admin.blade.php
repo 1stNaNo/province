@@ -45,6 +45,10 @@
   polls.inactive = '{!! trans('resource.poll.inactive') !!}';
   polls.makeactive = '{!! trans('resource.poll.makeactive') !!}';
   polls.makeinactive = '{!! trans('resource.poll.makeinactive') !!}';
+
+  var shorters = {};
+  shorters.self = '{!! trans('resource.category.self') !!}';
+  shorters.blank = '{!! trans('resource.category.blank') !!}';
 </script>
 
 <!-- BEGIN PLUGIN CSS -->

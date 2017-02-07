@@ -36,17 +36,15 @@ class ShorterController extends Controller
 
       $source = collect([]);
 
-      $vw_shorter;
+      $vw_shorter = null;
 
-      if($request->isEdit && !empty($request->id)){
-
-          foreach($langs as $lang){
-            $vw_shorter = Vw_shorter::equalListByIdLang($lang->lang_key, $request->id)->first();
-            $source->put($lang->lang_key, $vw_shorter);
-          }
+      if(!empty($request->id)){
+        foreach($langs as $lang){
+          $vw_shorter = Vw_shorter::equalListByIdLang($lang->lang_key, $request->id)->first();
+          $source->put($lang->lang_key, $vw_shorter);
+        }
       }
-
-        return \View::make('admin.shorter_action')->with(compact('langs'))->with(compact('source'))->with(compact('vw_shorter'))->with('edit', $request->isEdit);
+      return \View::make('admin.shorter_action')->with(compact('langs'))->with(compact('source'))->with(compact('vw_shorter'));
     }
 
     public function save(Request $request){
@@ -99,7 +97,7 @@ class ShorterController extends Controller
 
               $t_source->code = $incr_t->id;
               $t_source->lang = $lang->lang_key;
-              $t_source->kind = 'category';
+              $t_source->kind = 'shorter';
               $t_source->save();
 
               $t_source =  new Source;
@@ -117,12 +115,7 @@ class ShorterController extends Controller
       $shorter->url = $request->link;
       $shorter->active_flag = 1;
       $shorter->target = $request->target;
-
-      if($request->show != null){
-          $shorter->show = 1;
-      }else{
-        $shorter->show = 0;
-      }
+      $shorter->show = $request->show;
 
       $shorter->save();
 
