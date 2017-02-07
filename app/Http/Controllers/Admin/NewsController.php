@@ -39,18 +39,23 @@ class NewsController extends Controller
 
         $source = collect([]);
 
-        $vw_news;
+        $vw_news = null;
+        $newscat = null;
 
         $category = Vw_category::fromView()->get();
 
         if($request->isEdit && !empty($request->id)){
 
-            $newscat = NewsCat::byNewsId($request->id)->get();
-            $newscat = $newscat[0];
+            $newscat = NewsCat::byNewsId($request->id)->first();
 
             foreach($langs as $lang){
-              $vw_news = Vw_news::byIdAndLang($request->id, $lang->lang_key)->first();
-              $source->put($lang->lang_key, $vw_news);
+              $vwnews = Vw_news::byIdAndLang($request->id, $lang->lang_key)->first();
+
+              if(count($vwnews) > 0){
+                  $vw_news = $vwnews;
+              }
+
+              $source->put($lang->lang_key, $vwnews);
             }
         }
 
@@ -66,119 +71,128 @@ class NewsController extends Controller
       $lcl_title = "";
       $lcl_content = "";
 
-      foreach($langs as $lang){
-          if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
-              $lcl_title = $request->title[$lang->lang_key];
-          }
+      $validate = [];
+      $validate["title.".$langs[0]->lang_key] = "required";
 
-          if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
-              $lcl_content = $request->content[$lang->lang_key];
-          }
-      }
+      $validator = \Validator::make($request->all(), $validate);
 
-      $incr_t = null;
-      $incr_c = null;
-
-      if(!empty($request->id)){
-
-          $news = News::find($request->id);
-
-          foreach($langs as $lang){
-              $t_source = Source::byCode($news->title_sid, $lang->lang_key)->get();
-              $c_source = Source::byCode($news->content_sid, $lang->lang_key)->get();
-              $t_source = $t_source[0];
-              $c_source = $c_source[0];
-
-              if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
-                  $t_source->source = $request->title[$lang->lang_key];
-              }else{
-                  $t_source->source = $lcl_title;
-              }
-
-              $t_source->save();
-
-              if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
-                    $c_source->source = $request->content[$lang->lang_key];
-              }else{
-                    $c_source->source = $lcl_content;
-              }
-
-              $c_source->save();
-          }
-
-          $news->update_user = \Auth::user()->id;
-          $news->update_date = \DB::raw('NOW()');
-
+      if($validator->fails()){
+        return response()->json($validator->messages(), 200);
       }else{
-          $incr_t = new Incr;
-          $incr_t->value = 1;
-          $incr_t->save();
+        foreach($langs as $lang){
+            if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+                $lcl_title = $request->title[$lang->lang_key];
+            }
 
-          $incr_c = new Incr;
-          $incr_c->value = 1;
-          $incr_c->save();
+            if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+                $lcl_content = $request->content[$lang->lang_key];
+            }
+        }
 
-          foreach($langs as $lang){
+        $incr_t = null;
+        $incr_c = null;
 
-              $t_source =  new Source;
+        if(!empty($request->id)){
 
-              if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+            $news = News::find($request->id);
+
+            foreach($langs as $lang){
+                $t_source = Source::byCode($news->title_sid, $lang->lang_key)->get();
+                $c_source = Source::byCode($news->content_sid, $lang->lang_key)->get();
+                $t_source = $t_source[0];
+                $c_source = $c_source[0];
+
+                if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
                     $t_source->source = $request->title[$lang->lang_key];
-              }else{
+                }else{
                     $t_source->source = $lcl_title;
-              }
+                }
 
-              $t_source->code = $incr_t->id;
-              $t_source->lang = $lang->lang_key;
-              $t_source->kind = 'title';
-              $t_source->save();
+                $t_source->save();
 
-              $t_source =  new Source;
+                if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+                      $c_source->source = $request->content[$lang->lang_key];
+                }else{
+                      $c_source->source = $lcl_content;
+                }
 
-              if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
-                    $t_source->source = $request->content[$lang->lang_key];
-              }else{
-                    $t_source->source = $lcl_content;
-              }
+                $c_source->save();
+            }
 
-              $t_source->code = $incr_c->id;
-              $t_source->lang = $lang->lang_key;
-              $t_source->kind = 'news';
-              $t_source->save();
-          }
+            $news->update_user = \Auth::user()->id;
+            $news->update_date = \DB::raw('NOW()');
 
-          $news->title_sid = $incr_t->id;
-          $news->content_sid = $incr_c->id;
+        }else{
+            $incr_t = new Incr;
+            $incr_t->value = 1;
+            $incr_t->save();
 
-          $news->insert_user = \Auth::user()->id;
-          $news->insert_date = \DB::raw('NOW()');
-          $news->views = 0;
+            $incr_c = new Incr;
+            $incr_c->value = 1;
+            $incr_c->save();
+
+            foreach($langs as $lang){
+
+                $t_source =  new Source;
+
+                if(!empty(preg_replace('/\s+/', '', $request->title[$lang->lang_key]))){
+                      $t_source->source = $request->title[$lang->lang_key];
+                }else{
+                      $t_source->source = $lcl_title;
+                }
+
+                $t_source->code = $incr_t->id;
+                $t_source->lang = $lang->lang_key;
+                $t_source->kind = 'title';
+                $t_source->save();
+
+                $t_source =  new Source;
+
+                if(preg_replace('/\s+/', '', $request->content[$lang->lang_key]) != "<br>"){
+                      $t_source->source = $request->content[$lang->lang_key];
+                }else{
+                      $t_source->source = $lcl_content;
+                }
+
+                $t_source->code = $incr_c->id;
+                $t_source->lang = $lang->lang_key;
+                $t_source->kind = 'news';
+                $t_source->save();
+            }
+
+            $news->title_sid = $incr_t->id;
+            $news->content_sid = $incr_c->id;
+
+            $news->insert_user = \Auth::user()->id;
+            $news->insert_date = \DB::raw('NOW()');
+            $news->views = 0;
+        }
+
+        // BASIC pack
+
+        $news->thumbnail = $request->thumbnail;
+        $news->have_comment = 1;
+        $news->active_flag = 1;
+
+        if($request->slide != null){
+            $news->slide = 1;
+        }else{
+          $news->slide = 0;
+        }
+
+        $news->save();
+
+        NewsCat::deleteByNewsId($news->id);
+
+        $newscat = new NewsCat;
+        $newscat->news_id = $news->id;
+        $newscat->cat_id = $request->category;
+
+        $newscat->save();
+
+
+        return response()->json(['type' => 'success']);
       }
-
-      // BASIC pack
-
-      $news->thumbnail = $request->thumbnail;
-      $news->have_comment = 1;
-      $news->active_flag = 1;
-
-      if($request->slide != null){
-          $news->slide = 1;
-      }else{
-        $news->slide = 0;
-      }
-
-      $news->save();
-
-      NewsCat::deleteByNewsId($news->id);
-
-      $newscat = new NewsCat;
-      $newscat->news_id = $news->id;
-      $newscat->cat_id = $request->category;
-
-      $newscat->save();
-
-
-      return response()->json(['type' => 'success']);
     }
 
     public function edit()
