@@ -3,10 +3,7 @@
 @section('content')
 <div id="window_decisionsList" class="page-window active-window">
   <input type="hidden" class="prev_window"/>
-  <div class="page-title">
-    <i class="icon-custom-left"></i>
-    <h3> - <span class="semi-bold">{{trans('resource.decision.menu')}}</span></h3>
-  </div>
+
   <div class="row-fluid">
     <div class="span12">
       <div class="grid simple ">
@@ -16,12 +13,13 @@
         </div>
         <div class="grid-body">
           <div style="display: none;" class="ucolumn-cont" data-table="decisions_grid">
-            <ucolumn name="id" source="id"/>
+            <ucolumn name="id" source="id" visible="false"/>
             <ucolumn name="name" source="name"/>
             <ucolumn name="email" source="email"/>
             <ucolumn name="content" source="content"/>
             <ucolumn name="decision" source="decision"/>
-            <ucolumn name="type" source="type"/>
+            <ucolumn name="kind" source="kind" utype="formatter" func="udecision.kindformat"/>
+            <ucolumn name="type" source="type" utype="formatter" func="udecision.typeformat"/>
           </div>
           <table action="/admin/decisionlist" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-condensed" id="decisions_grid" width="100%">
             <thead>
@@ -31,28 +29,16 @@
                 <th>{{trans('resource.email')}}</th>
                 <th>{{trans('resource.decision.content')}}</th>
                 <th>{{trans('resource.decision.solution')}}</th>
-                <th></th>
+                <th>{{trans('resource.file.type')}}</th>
+                <th>{{trans('resource.weblinks.category')}}</th>
               </tr>
             </thead>
           </table>
           <div class="row-fluid">
             <div class="row-fluid">
-              <button type="button" id="btnMakeDecision" class="btn btn-primary btn-cons span1" onclick="makeDecision(); return false;">Шийдвэрлэх</button>
-              <div class="span4">
-                
-                <select id="type" name="type" class="grid-param pull-right" onchange="if($(this).val() == 1) { $('#kind-container').css('display', 'none').val(''); }else{ $('#kind-container').css('display', 'block'); } baseGridFunc.reload('decisions_grid');">
-                  <option value="1">Шийдвэрлээгүй</option>
-                  <option value="0">Шийдвэрлэсэн</option>
-                </select>
-              </div>
-              <div class="span3" id="kind-container">
-                <select id="kind" name="kind" class="grid-param" onchange="baseGridFunc.reload('decisions_grid');">
-                  <option value="">Бүгд</option>
-                  <option value="1">Эерэг</option>
-                  <option value="2">Сөрөг</option>
-                </select>
-              </div>
+
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -60,42 +46,43 @@
   </div>
 </div>
 <script type="text/javascript">
-  $(document).ready(function() {
-    var buttons = [];
-    baseGridFunc.init("decisions_grid", buttons);
-    $("select").each(function(){
-      $(this).select2({
-        minimumResultsForSearch: -1
-      });
-    });
-  });
 
-  function addWeblink(isEdit){
-    if(isEdit){
-      var id = baseGridFunc.getSelectedRow("decisions_grid", "id");
-      if(id != undefined && id != null)
-        uPage.call('/admin/weblinkregister', {"id" : id, "isEdit" : isEdit}, false);
-    }else{
-      uPage.call('/admin/weblinkregister', null, false);
-    }
-  }
+  var udecision = {
 
-  function removeWebLink(){
-    var id = baseGridFunc.getSelectedRow("weblinks_grid", "id");
-    if(id != undefined && id != null){
-      if(confirm("Устгахдаа итгэлтэй байна уу?")){
-        $.post("/admin/weblinkremove", {'id' : id}, function(){
-          baseGridFunc.reload('weblinks_grid');
-        });
+    kindformat: function(data, type, row){
+      var retVal = "";
+
+      if(data == 1){
+        retVal = decisions.kindposi;
+      }else if(data == 2){
+        retVal = decisions.kindnega;
+      }else{
+        retVal = "";
       }
-    }
-  }
 
-  function makeDecision(){
-    if(baseGridFunc.getSelectedRow('decisions_grid', 'type') == 1){
-      uPage.call('decisionregister', {'id': baseGridFunc.getSelectedRow('decisions_grid', 'id')});
+      return retVal;
+    },
+
+    typeformat: function(data, type, row){
+      var retVal = "";
+
+      if(data == 1){
+        retVal = decisions.done;
+      }else if(data == 0){
+        retVal = '<button type="button" id="btnMakeDecision" class="btn btn-warning btn-xs" onclick="udecision.makeDecision('+row.id+'); return false;">Шийдвэрлэх</button>';
+      }
+
+      return retVal;
+    },
+    makeDecision : function(id){
+      uPage.call('decisionregister', {'id': id});
     }
-  }
+}
+
+$(document).ready(function() {
+  var buttons = [];
+  baseGridFunc.init("decisions_grid", buttons);
+});
 
 </script>
 @endsection

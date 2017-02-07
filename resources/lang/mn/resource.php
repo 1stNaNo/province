@@ -101,7 +101,11 @@ return [
     'decision' => [
       'menu' => 'Санал гомдол',
       'content' => 'Агуулга',
-      'solution' => 'Шийдэл'
+      'solution' => 'Шийдэл',
+      'positive' => 'Эерэг',
+      'negative' => 'Сөрөг',
+      'done' => 'Шийдэгдсэн',
+      'undone' => 'Шийдэгдээгүй'
     ],
     'poll' => [
       'title' => 'Санал асуулга',

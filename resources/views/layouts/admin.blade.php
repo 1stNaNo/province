@@ -33,6 +33,11 @@
   weblinkres.agency = '{{trans('resource.weblinks.agency')}}';
   weblinkres.others = '{{trans('resource.weblinks.others')}}';
 
+  var decisions = {};
+  decisions.kindposi = '{!! trans('resource.decision.positive') !!}';
+  decisions.kindnega = '{!! trans('resource.decision.negative') !!}';
+  decisions.done = '{!! trans('resource.decision.done') !!}';
+  decisions.undone = '{!! trans('resource.decision.undone') !!}';
 </script>
 
 <!-- BEGIN PLUGIN CSS -->

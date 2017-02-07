@@ -19,10 +19,7 @@ class DecisionController extends Controller
     }
 
     public function complaintsList(Request $request){
-    	if(!empty($request->kind))
-    		return Datatables::of(Complaint::where('type', $request->type)->where('kind', $request->kind))->make(true);		
-    	else
-    		return Datatables::of(Complaint::where('type', $request->type))->make(true);
+    		return Datatables::of(Complaint::all())->make(true);
     }
 
     public function decisionregister(Request $request){
@@ -33,7 +30,7 @@ class DecisionController extends Controller
    		$c = Complaint::find($request->id);
    		$c->decision = $request->decision;
    		$c->kind = $request->kind;
-   		$c->type = 0;
+   		$c->type = 1;
    		$c->save();
    		return $c;
     }

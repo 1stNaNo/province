@@ -101,7 +101,11 @@ return [
     'decision' => [
       'menu' => 'Decision',
       'content' => 'Content',
-      'solution' => 'Solution'
+      'solution' => 'Solution',
+      'positive' => 'Positive',
+      'negative' => 'Negative',
+      'done' => 'Solved',
+      'undone' => 'Not Solved'
     ],
     'poll' => [
       'title' => 'Poll',
