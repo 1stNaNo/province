@@ -77,11 +77,17 @@ Route::post('/admin/pollsave', 'Admin\PollController@save');
 Route::post('/admin/activepoll', 'Admin\PollController@activepoll');
 
 Route::post('/submitpoll', 'PollController@submitpoll');
-// BANNER
+
+// ---- BEGIN BANNER UPLOAD -------------
 
 Route::get('/admin/banner', 'Admin\BannerController@index');
-Route::post('/admin/bannersave', 'Admin\BannerController@save');
+Route::post('/admin/banner/index', 'Admin\BannerController@indexA');
+Route::post('/admin/banner/save', 'Admin\BannerController@save');
+Route::post('/admin/banner/remove', 'Admin\BannerController@remove');
 
+Route::get('/admin/banner/data', 'Admin\BannerController@anyData');
+
+// ---- END BANNER UPLOAD -------------
 
 // ---- BEGIN SECTION UPLOAD -------------
 
