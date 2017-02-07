@@ -150,6 +150,13 @@ Route::get('/admin/file/data', 'Admin\UFileController@anyData');
 
 // ---- END FILE CATEGORY -------------
 
+// ---- BEGIN FILE LINKS -------------
+
+Route::get('/admin/links', 'Admin\LinksController@index');
+Route::post('/admin/linkssave', 'Admin\LinksController@save');
+
+// ---- END FILE LINKS -------------
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
