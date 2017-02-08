@@ -2,7 +2,6 @@
 <div id="window_pollRegister" class="page-window">
   <form class="form-horizontal" method="POST" role="form" action="{{ url('/admin/pollsave') }}" id="pollRegister_form" style="width:100%; height: 100%">
     <input type="hidden" class="prev_window"/>
-    <div class="row-fluid">
       <div class="row-fluid">
         <div class="span12">
 
@@ -96,11 +95,10 @@
                 </div>
 
 
-            </div>
+              </div>
           </div>
 
         </div>
       </div>
-    </div>
   </form>
 </div>

@@ -48,6 +48,10 @@ return [
     'most_viewed' => 'Most viewed',
     'most_comment' => 'Most comment',
     'sums_news' => 'Sums news',
+    'webtitle' => 'Website Title',
+    'users' => 'Users',
+    'password' => 'Password',
+    'passwordconf' => 'Password Confirm',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',

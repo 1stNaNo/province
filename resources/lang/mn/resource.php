@@ -48,6 +48,10 @@ return [
     'most_viewed' => 'Их уншсан',
     'most_comment' => 'Их сэтгэгдэлтэй',
     'sums_news' => 'Сумдын мэдээ',
+    'webtitle' => 'Сайтын нэр',
+    'users' => 'Хэрэглэгчид',
+    'password' => 'Нууц үг',
+    'passwordconf' => 'Нууц үг давтах',
     'category' => [
       'id' => 'No',
       'parent' => 'Хамаарал',
