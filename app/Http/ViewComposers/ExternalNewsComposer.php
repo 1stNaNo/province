@@ -18,7 +18,7 @@ class ExternalNewsComposer
       $external = External::all();
 
       foreach($external as $item){
-          $response = Laracurl::get($item->link.'/extranews\/'.$item->count);
+          $response = Laracurl::get($item->link.'/extranews\/'.$item->count.'/'.\Session::get("lang"));
           $result = null;
 
           if($response->code == '200 OK'){

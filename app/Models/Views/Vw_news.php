@@ -30,6 +30,10 @@ class Vw_news extends Model
         $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereActive_flag(1)->orderBy("insert_date","DESC")->groupBy("id");
     }
 
+    public function scopeLatestNewsByLang($query, $lang){
+        $query->from(self::$vw)->whereLang($lang)->whereActive_flag(1)->orderBy("insert_date","DESC")->groupBy("id");
+    }
+
     public function scopeMostViewed($query){
         $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereActive_flag(1)->orderBy("views","DESC")->groupBy("id");
     }

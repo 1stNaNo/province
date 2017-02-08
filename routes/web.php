@@ -41,6 +41,7 @@ Route::post('/complaintInfo', 'ComplaintsController@complaintInfo');
 
 
 Route::get('/weblinks/{id}', 'WebLinksController@index')->middleware('lang');
+Route::get('/extranews/{count}/{lang}', 'ExtraNewsController@index')->middleware('lang');
 
 // ****************** ADMIN ROUTES *************************
 
@@ -167,7 +168,6 @@ Route::get('/admin/external/data', 'Admin\ExternalController@anyData');
 Route::get('/admin/links', 'Admin\LinksController@index');
 Route::post('/admin/linkssave', 'Admin\LinksController@save');
 
-Route::get('/extranews/{count}', 'ExtraNewsController@index');
 
 // ---- END FILE LINKS -------------
 // ---- BEGIN FILE TITLE -------------
