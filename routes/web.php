@@ -168,6 +168,12 @@ Route::get('/admin/links', 'Admin\LinksController@index');
 Route::post('/admin/linkssave', 'Admin\LinksController@save');
 
 // ---- END FILE LINKS -------------
+// ---- BEGIN FILE TITLE -------------
+
+Route::get('/admin/title', 'Admin\TitleController@index');
+Route::post('/admin/titlesave', 'Admin\TitleController@save');
+
+// ---- END FILE TITLE -------------
 
 Auth::routes();
 

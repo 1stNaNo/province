@@ -45,6 +45,7 @@ return [
     'enterComplaints' => 'Enter complaints',
     'saved' => 'Succesfully saved',
     'confirm' => 'Are you sure?',
+    'webtitle' => 'Website Title',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',

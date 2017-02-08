@@ -200,6 +200,7 @@
           {{trans('resource.main.conf')}}<span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/title">{{trans('resource.webtitle')}}</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/newscat">{{trans('resource.main.home')}}</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/upload/2">{{trans('resource.upload.thumbUpload')}}</a></li>
         <li role="presentation" class="divider"></li>
