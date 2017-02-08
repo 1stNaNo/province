@@ -20,12 +20,12 @@
                       </div>
                   </figure>
                   <div class="ptp-10-data">
-                      <h3 class="title-5"><a href="">{{$item->title}}</a></h3>
+                      <h3 class="title-5"><a href="{{trans('resource.conf.host')}}/post/{{$item->id}}">{{$item->title}}</a></h3>
                       <p class="p">{{--TEXT--}}</p>
                       <div class="meta-tp-2">
                           <div class="date"><span>{{$item->insert_date}}</span></div>
                           <div class="category">
-                              <a href="{{trans('resource.conf.host')}}/post/{{$item->id}}"><i class="{{--li_pen--}}"></i><span>{{--TEXT--}}</span></a>
+                              <a href=""><i class="{{--li_pen--}}"></i><span>{{--TEXT--}}</span></a>
                           </div>
                       </div>
                   </div>
