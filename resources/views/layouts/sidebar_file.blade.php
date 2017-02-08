@@ -2,7 +2,7 @@
 <div class="file-widget">
     <div class="pst-block">
         <div class="pst-block-head">
-            <h2 class="title-4"><strong>{{trans('resource.file.file')}}</strong></h2>
+            <h2 class="title-4"><strong>{{trans('resource.viewfile')}}</strong></h2>
         </div>
         <div class="pst-block-main">
             <div class="file-block">

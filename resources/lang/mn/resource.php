@@ -53,6 +53,7 @@ return [
     'users' => 'Хэрэглэгчид',
     'password' => 'Нууц үг',
     'passwordconf' => 'Нууц үг давтах',
+    'viewfile' => 'Лавлах цонх',
     'category' => [
       'id' => 'No',
       'parent' => 'Хамаарал',

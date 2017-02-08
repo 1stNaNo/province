@@ -53,6 +53,7 @@ return [
     'users' => 'Users',
     'password' => 'Password',
     'passwordconf' => 'Password Confirm',
+    'viewfile' => 'Reference window',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',
