@@ -25,7 +25,7 @@
                       <div class="meta-tp-2">
                           <div class="date"><span>{{$item->insert_date}}</span></div>
                           <div class="category">
-                              <a href=""><i class="{{--li_pen--}}"></i><span>{{--TEXT--}}</span></a>
+                              <a href="{{trans('resource.conf.host')}}/post/{{$item->id}}"><i class="{{--li_pen--}}"></i><span>{{--TEXT--}}</span></a>
                           </div>
                       </div>
                   </div>
