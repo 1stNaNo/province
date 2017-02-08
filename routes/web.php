@@ -174,6 +174,16 @@ Route::get('/admin/title', 'Admin\TitleController@index');
 Route::post('/admin/titlesave', 'Admin\TitleController@save');
 
 // ---- END FILE TITLE -------------
+// ---- BEGIN FILE USERS -------------
+
+Route::get('/admin/users', 'Admin\UsersController@index');
+Route::get('/admin/userslist', 'Admin\UsersController@userslist');
+Route::post('/admin/newuser', 'Admin\UsersController@indexnewuser');
+Route::post('/admin/usersave', 'Admin\UsersController@save');
+Route::post('/admin/userremove', 'Admin\UsersController@remove');
+
+// ---- END FILE USERS -------------
+
 
 Auth::routes();
 

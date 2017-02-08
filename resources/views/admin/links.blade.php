@@ -23,7 +23,7 @@
           </div>
           <div class="span4">
             <div class="control-group">
-              <label class="control-label">{{trans('resource.name')}}</label>
+              <label class="control-label">{{trans('resource.category.link')}}</label>
               <div class="controls">
                 <input type="text" class="span12" name="link[{{$link->id}}]" class="" value="{{$link->link}}"/>
               </div>

@@ -205,6 +205,7 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/upload/2">{{trans('resource.upload.thumbUpload')}}</a></li>
         <li role="presentation" class="divider"></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/links">{{trans('resource.weblinks.link')}}</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/users">{{trans('resource.users')}}</a></li>
       </ul>
     </div>
     <div class="dropdown menu">

@@ -46,6 +46,9 @@ return [
     'saved' => 'Succesfully saved',
     'confirm' => 'Are you sure?',
     'webtitle' => 'Website Title',
+    'users' => 'Users',
+    'password' => 'Password',
+    'passwordconf' => 'Password Confirm',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',
