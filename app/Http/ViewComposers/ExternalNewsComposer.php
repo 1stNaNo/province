@@ -20,11 +20,14 @@ class ExternalNewsComposer
       foreach($external as $item){
           // var_dump($item->link.'/extranews/'.$item->count.'/'.\Session::get("lang"));
           $response = Laracurl::get($item->link.'/extranews/'.$item->count.'/'.\Session::get("lang"));
-          $result = null;
+          $result = '';
 
-          if($response->code == '200 OK'){
-              $result = $response->body;
+          if($response != false){
+            if($response->code == '200 OK'){
+                $result = $response->body;
+            }
           }
+
       }
       $data = $data."".$result;
 
