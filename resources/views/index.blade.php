@@ -50,7 +50,7 @@
                 </div>
                 <aside class="side-bar sticky-wrap">
 
-                    @include('layouts.weather')
+                    @include('layouts.video')
 
                     @include('layouts.sidebar_dslide')
 

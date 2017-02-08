@@ -71,6 +71,18 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'layouts.external_news', 'App\Http\ViewComposers\ExternalNewsComposer'
         );
+
+        View::composer(
+            'layouts.social', 'App\Http\ViewComposers\SocialComposer'
+        );
+
+        View::composer(
+            'layouts.video', 'App\Http\ViewComposers\SocialComposer'
+        );
+
+        View::composer(
+            'layouts.lang', 'App\Http\ViewComposers\SocialComposer'
+        );
     }
 
     /**

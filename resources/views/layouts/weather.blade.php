@@ -5,7 +5,7 @@
             <a href="" class="arr-ic-3"><i class="fa fa-angle-down"></i></a>
         </div>
         <div class="pst-block-main">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="310" width="245" src="http://tsag-agaar.gov.mn/embed/?name={{$model[0]->link}}&color=ef6e25&color2=cc530e&color3=ffffff&color4=ffffff&type=vertical&tdegree=cwidth=270"> </iframe> 
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="270" width="245" src="http://tsag-agaar.gov.mn/embed/?name={{$model[0]->link}}&color=ef6e25&color2=cc530e&color3=ffffff&color4=ffffff&type=vertical&tdegree=cwidth=270"> </iframe>
         </div>
     </div>
 </div>
