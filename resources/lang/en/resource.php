@@ -12,7 +12,7 @@ return [
 
     'logoText' => 'Dornod province',
     'logoTag' => 'official website',
-    'shorter' => 'briefs',
+    'shorter' => 'Newsletter',
     'readmore' => 'Read more',
     'latestNews' => 'Latest news',
     'more' => 'More',
@@ -45,6 +45,9 @@ return [
     'enterComplaints' => 'Enter complaints',
     'saved' => 'Succesfully saved',
     'confirm' => 'Are you sure?',
+    'most_viewed' => 'Most viewed',
+    'most_comment' => 'Most comment',
+    'sums_news' => 'Sums news',
     'category' => [
       'id' => 'No',
       'parent' => 'Parent',

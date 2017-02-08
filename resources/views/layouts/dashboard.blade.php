@@ -1,7 +1,7 @@
 <div class="design-pst">
     <div class="pst-block">
-        <div class="pst-block-head">
-            <h2 class="title-4"><strong>{{trans('resource.dashboard.dashboard')}}</strong></h2>
+        <div class="pst-block-head" style="background: #395a93;">
+            <h2 class="title-4" style="color: #fff"><strong>{{trans('resource.dashboard.dashboard')}}</strong></h2>
         </div>
         {{ csrf_field() }}
         <div class="pst-block-main">
@@ -72,9 +72,9 @@ $(function () {
 
         });
 
-    
-        
+
+
     });
-    
+
 });
 </script>

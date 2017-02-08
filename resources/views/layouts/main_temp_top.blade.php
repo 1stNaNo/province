@@ -48,6 +48,9 @@
                         </nav>
                         @include('layouts.search',['vwType' => 'top'])
                     </div>
+                    <div class="row">
+                        @include("layouts.shorter", ['type'=> 2])
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,16 +66,19 @@
                                     <li><a href="/post/16">{{trans('resource.contact')}}</a></li>
                                 </ul>
                             </nav>
-                            <div class="tb-social">
+                            <div class="tb-sing-login" style="font-family: arial; font: none; font-weight: bold; width: 10px;">
+                                @include('layouts.search',['vwType' => 'top'])
+                            </div>
+                            <div class="tb-social" style="width: 105px;">
                                 <ul class="tb-social-list">
                                     <li class="tw">
-                                        <a href="{{trans('resource.main.fblink')}}" target="_blank">
-                                            <i class="fa fa-facebook"></i>
+                                        <a href="{{trans('resource.main.fblink')}}" target="_blank" >
+                                            <i class="fa fa-facebook" style="font-size: 18px;"></i>
                                         </a>
                                     </li>
                                     <li class="fb">
                                         <a href="{{trans('resource.main.twitterlink')}}" target="_blank">
-                                            <i class="fa fa-twitter"></i>
+                                            <i class="fa fa-twitter" style="font-size: 18px;"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -85,22 +91,16 @@
                 </div>
             </div>
             <div class="main-header">
-                <div class="mh-top">
-                    <div class="container">
-                        <div class="row flex">
-                            <div class="mh-logo">
-                                <a href="/" class="logoImg">
-                                    <img src="/img/dornod-logo-s.png" width="80" alt="Spectr News Theme" class="adaptive" />
-                                </a>
-                                <div class="logoText">
-                                    <p class="lgText">{{ trans('resource.logoText') }}</p>
-                                    <p class="lgTag">{{ trans('resource.logoTag') }}</p>
-                                </div>
-                            </div>
-                            {{-- <div class="mh-banner">
-                                @include('layouts.banner', ['name' => 'banner1'])
-                            </div> --}}
-                        </div>
+                @include('layouts.banner', ['name' => 'banner1'])
+                <div style="position: absolute; left: 50%; z-index: 999999; top:166px;">
+                    <div style="position: relative; left: -50%; background: url('/img/transp-white-bg.png'); padding: 5px 30px 5px 30px; height: 110px">
+                          <a href="/" class="logoImg">
+                              <img src="/img/dornod-logo-s.png" width="100" alt="Spectr News Theme" class="adaptive" />
+                          </a>
+                          <div class="logoText" st>
+                              <p class="lgText">{{ trans('resource.logoText') }}</p>
+                              <p class="lgTag">{{ trans('resource.logoTag') }}</p>
+                          </div>
                     </div>
                 </div>
                 <div class="mh-bottom">
@@ -113,7 +113,6 @@
                                     </a>
                                     @include('layouts.menu')
                                 </nav>
-                                @include('layouts.search',['vwType' => 'top'])
                             </div>
                         </div>
                     </div>

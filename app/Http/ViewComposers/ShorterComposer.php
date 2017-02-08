@@ -13,6 +13,6 @@ class ShorterComposer
 
       $data = Vw_shorter::fromView()->orderBy('insert_date')->get();
 
-      return $view->withModel($data);
+      return $view->withModel($data)->with('type',$view->type);
     }
 }

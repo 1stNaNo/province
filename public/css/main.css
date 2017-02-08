@@ -1582,7 +1582,7 @@ p {
   margin-bottom: 23px; }
   /* line 52, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
   p a {
-    color: #fd3a13;
+    color: #395a93;
     text-decoration: none; }
   /* line 56, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
   p.p {
@@ -1590,7 +1590,7 @@ p {
     margin: 0; }
   /* line 60, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
   p .orange {
-    background-color: #fd3a13;
+    background-color: #395a93;
     color: #fff;
     line-height: 16px;
     display: inline-block;
@@ -1641,7 +1641,7 @@ blockquote {
 
 /* line 112, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
 .bq-tp-1 {
-  border-left: 1px solid #fd3a13; }
+  border-left: 1px solid #395a93; }
 
 /* line 116, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
 .bq-tp-2 {
@@ -1663,7 +1663,7 @@ blockquote {
   /* line 132, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
   .bq-tp-3:before {
     content: '“';
-    color: #fd3a13;
+    color: #395a93;
     font-size: 40px;
     line-height: 1;
     position: absolute;
@@ -1723,7 +1723,7 @@ blockquote {
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -1745,7 +1745,7 @@ blockquote {
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -2214,7 +2214,7 @@ blockquote {
   border: 1px solid #dbdbdb;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  color: #fd3a13;
+  color: #395a93;
   display: inline-block;
   float: left;
   font-size: 12px;
@@ -2245,7 +2245,7 @@ blockquote {
 
 /* line 705, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
 .dropcap-tp-2 {
-  background-color: #fd3a13;
+  background-color: #395a93;
   color: #fff; }
 
 /* line 710, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
@@ -2387,7 +2387,7 @@ label.cb-label {
 .checkbox[type="checkbox"]:not(:checked) + label:after,
 .checkbox[type="checkbox"]:checked + label:after {
   content: '✔';
-  color: #fd3a13;
+  color: #395a93;
   position: absolute;
   left: 0;
   top: 0;
@@ -2547,7 +2547,7 @@ label.rd-label-tp-2:hover:before {
     margin-bottom: 9px; }
     /* line 1023, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
     .accordion dt.open .fa {
-      color: #fd3a13;
+      color: #395a93;
       -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       transform: rotate(90deg); }
@@ -2655,7 +2655,7 @@ label.rd-label-tp-2:hover:before {
     .tabs .tabs-list .tab.active {
       background-color: #f7f7f7;
       border-color: #f7f7f7;
-      color: #fd3a13; }
+      color: #395a93; }
 
 /* line 1141, D:/aartyomenko/Git/spectr/html/app/scss/_typography.scss */
 .tabs .tab-content p {
@@ -2845,7 +2845,7 @@ label.rd-label-tp-2:hover:before {
   -moz-appearance: none;
   appearance: none;
   color: #fff;
-  background-color: #fd3a13;
+  background-color: #395a93;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   cursor: pointer;
@@ -2886,7 +2886,7 @@ label.rd-label-tp-2:hover:before {
   -moz-appearance: none;
   appearance: none;
   color: #fff;
-  background-color: #fd3a13;
+  background-color: #395a93;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   cursor: pointer;
@@ -2993,7 +2993,7 @@ label.rd-label-tp-2:hover:before {
   text-transform: uppercase; }
   /* line 247, D:/aartyomenko/Git/spectr/html/app/scss/_buttons.scss */
   .btn-7:hover, .btn-7:active, .btn-7:focus {
-    color: #fd3a13; }
+    color: #395a93; }
   @media screen and (max-width: 1077px) {
     /* line 232, D:/aartyomenko/Git/spectr/html/app/scss/_buttons.scss */
     .btn-7 {
@@ -3005,7 +3005,7 @@ label.rd-label-tp-2:hover:before {
   -moz-appearance: none;
   appearance: none;
   color: #fff;
-  background-color: #fd3a13;
+  background-color: #395a93;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   cursor: pointer;
@@ -3030,7 +3030,9 @@ html {
 body {
   font: 13px/23px "Poppins";
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  font-family: arial;
+ }
 
 /* line 12, D:/aartyomenko/Git/spectr/html/app/scss/_theme_base.scss */
 a,
@@ -3213,7 +3215,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   .post:hover .title-5,
   .post:hover .title-6,
   .post:hover .title-10 {
-    color: #fd3a13; }
+    color: #395a93; }
   /* line 32, D:/aartyomenko/Git/spectr/html/app/scss/_posts.scss */
   .post figure img {
     width: 100%; }
@@ -3439,7 +3441,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -3503,7 +3505,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -3611,7 +3613,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -3729,7 +3731,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -3845,7 +3847,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-top: 6px solid #fd3a13;
+    border-top: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -3968,7 +3970,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     opacity: 1; }
   /* line 806, D:/aartyomenko/Git/spectr/html/app/scss/_posts.scss */
   .post-tp-23:hover .top-rate:before {
-    border-bottom-color: #fd3a13; }
+    border-bottom-color: #395a93; }
   /* line 810, D:/aartyomenko/Git/spectr/html/app/scss/_posts.scss */
   .post-tp-23:hover .title-3 {
     color: #fff; }
@@ -4016,7 +4018,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -4100,7 +4102,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 7px solid #fd3a13;
+      border-bottom: 7px solid #395a93;
       border-right: 7px solid transparent;
       position: absolute;
       left: 0;
@@ -4318,7 +4320,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 7px solid #fd3a13;
+    border-bottom: 7px solid #395a93;
     border-right: 7px solid transparent;
     position: absolute;
     left: 0;
@@ -4431,7 +4433,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 50, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .category-tp-1, .category-tp-3 {
-  background: #fd3a13;
+  background: #395a93;
   color: #fff;
   display: inline-block;
   font-family: "Inconsolata";
@@ -4450,7 +4452,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
-    border-left: 4px solid #fd3a13;
+    border-left: 4px solid #395a93;
     border-bottom: 10px solid transparent;
     position: absolute;
     top: 0;
@@ -4481,7 +4483,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 101, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .category-tp-5 {
-  background: #fd3a13;
+  background: #395a93;
   color: #fff;
   display: inline-block;
   font-family: "Inconsolata";
@@ -4566,7 +4568,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -4743,7 +4745,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     margin: 0; }
   /* line 363, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .rate-tp-1 li i {
-    color: #fd3a13;
+    color: #395a93;
     font-size: 12px;
     margin: 0; }
 
@@ -4761,7 +4763,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     margin: 0; }
   /* line 385, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .rate-tp-2 li.active {
-    color: #fd3a13; }
+    color: #395a93; }
   /* line 388, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .rate-tp-2 li i {
     display: block;
@@ -4833,7 +4835,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -4874,7 +4876,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     padding: 13px 20px; }
     /* line 499, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .pst-block-foot a:hover {
-      color: #fd3a13; }
+      color: #395a93; }
   /* line 503, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .pst-block-foot .arr-right-dark-ic {
     float: right; }
@@ -4946,7 +4948,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -5017,7 +5019,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     padding: 13px 20px; }
     /* line 657, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .trpst-block-foot a:hover {
-      color: #fd3a13; }
+      color: #395a93; }
   /* line 661, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .trpst-block-foot .arr-right-dark-ic {
     float: right; }
@@ -5111,7 +5113,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     text-transform: uppercase; }
     /* line 748, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .filters-drop a:hover, .filters-drop a.active {
-      color: #fd3a13; }
+      color: #395a93; }
 
 /* line 755, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .filters-list-2 {
@@ -5139,7 +5141,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     text-decoration: none; }
     /* line 779, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .filters-list-3 a:before {
-      background: #fd3a13;
+      background: #395a93;
       content: '';
       position: absolute;
       left: 0;
@@ -5232,7 +5234,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     text-transform: uppercase; }
     /* line 863, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .all-sb a:hover {
-      color: #fd3a13; }
+      color: #395a93; }
 
 /* line 869, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .inner-filters {
@@ -5338,8 +5340,8 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   .sbr-dots .owl-page.slick-active span,
   .sbr-dots li.active span,
   .sbr-dots li.slick-active span {
-    background: #fd3a13;
-    border-color: #fd3a13; }
+    background: #395a93;
+    border-color: #395a93; }
 
 /* line 977, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .owl-pagination span,
@@ -5569,7 +5571,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 6px solid #fd3a13;
+      border-bottom: 6px solid #395a93;
       border-right: 6px solid transparent;
       position: absolute;
       left: 0;
@@ -5635,7 +5637,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       -moz-appearance: none;
       appearance: none;
       color: #fff;
-      background-color: #fd3a13;
+      background-color: #395a93;
       -webkit-border-radius: 2px;
       border-radius: 2px;
       cursor: pointer;
@@ -5698,7 +5700,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       -moz-appearance: none;
       appearance: none;
       color: #fff;
-      background-color: #fd3a13;
+      background-color: #395a93;
       -webkit-border-radius: 2px;
       border-radius: 2px;
       cursor: pointer;
@@ -5747,7 +5749,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       -moz-appearance: none;
       appearance: none;
       color: #fff;
-      background-color: #fd3a13;
+      background-color: #395a93;
       -webkit-border-radius: 2px;
       border-radius: 2px;
       cursor: pointer;
@@ -5834,7 +5836,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     -moz-appearance: none;
     appearance: none;
     color: #fff;
-    background-color: #fd3a13;
+    background-color: #395a93;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     cursor: pointer;
@@ -6029,7 +6031,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     padding-left: 0; }
   /* line 1652, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .info-tp-1 a:hover {
-    color: #fd3a13; }
+    color: #395a93; }
 
 /* line 1659, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .twitter-widget .info-tp-1 {
@@ -6051,7 +6053,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 1675, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .twitter-widget .post-list a {
-  color: #fd3a13;
+  color: #395a93;
   text-decoration: none; }
 
 /* line 1679, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
@@ -6087,7 +6089,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 1715, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .weather-widget .title-4 i {
-  color: #fd3a13;
+  color: #395a93;
   font-size: 14px;
   line-height: 14px; }
 
@@ -6105,7 +6107,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   /* line 1733, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .weather-block i {
     display: inline-block;
-    color: #fd3a13;
+    color: #395a93;
     font-size: 26px;
     margin-top: 5px;
     vertical-align: top; }
@@ -6204,8 +6206,8 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     text-decoration: none; }
     /* line 1836, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .page-nav .pn-item.current {
-      background: #fd3a13;
-      border-color: #fd3a13;
+      background: #395a93;
+      border-color: #395a93;
       color: #fff; }
   /* line 1842, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .page-nav .extend {
@@ -6712,7 +6714,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       color: #000; }
       /* line 2364, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
       .post-next-prev a:hover .fa {
-        color: #fd3a13; }
+        color: #395a93; }
     /* line 2368, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .post-next-prev a .fa {
       color: #bbb;
@@ -6932,7 +6934,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   /* line 2588, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .comment-list .comment .reply {
     cursor: pointer;
-    color: #fd3a13;
+    color: #395a93;
     display: inline-block;
     font-size: 11px;
     font-weight: 600;
@@ -7070,7 +7072,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     margin-right: 6px; }
   /* line 2727, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .details-info .email a {
-    color: #fd3a13;
+    color: #395a93;
     text-decoration: none; }
   /* line 2732, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .details-info .social-tp-2 {
@@ -7198,7 +7200,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   margin-top: 6px; }
   /* line 2852, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .rating-meter > span {
-    background-color: #fd3a13;
+    background-color: #395a93;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     display: block;
@@ -7288,7 +7290,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     content: '';
     width: 0;
     height: 0;
-    border-bottom: 6px solid #fd3a13;
+    border-bottom: 6px solid #395a93;
     border-right: 6px solid transparent;
     position: absolute;
     left: 0;
@@ -8034,7 +8036,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       content: '';
       width: 0;
       height: 0;
-      border-bottom: 6px solid #fd3a13;
+      border-bottom: 6px solid #395a93;
       border-right: 6px solid transparent;
       position: absolute;
       left: 0;
@@ -8056,7 +8058,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       text-decoration: none; }
   /* line 3716, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .shop-products-item .shop-products-item-price {
-    color: #fd3a13;
+    color: #395a93;
     font-size: 13px;
     font-weight: 500;
     line-height: 20px;
@@ -8135,7 +8137,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     background-color: #000; }
   /* line 3797, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .range-slider .ui-slider-handle {
-    background-color: #fd3a13;
+    background-color: #395a93;
     cursor: pointer;
     width: 8px;
     height: 8px; }
@@ -8149,7 +8151,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       height: 0;
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
-      border-top: 4px solid #fd3a13; }
+      border-top: 4px solid #395a93; }
 
 /* line 3816, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .range-amount-block {
@@ -8490,10 +8492,10 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
         text-decoration: none; }
     /* line 4149, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .shop-table-cart td.product-price {
-      color: #fd3a13; }
+      color: #395a93; }
     /* line 4153, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
     .shop-table-cart td.product-subtotal {
-      color: #fd3a13; }
+      color: #395a93; }
   /* line 4157, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .shop-table-cart .product-remove {
     width: 38px;
@@ -8681,7 +8683,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     padding: 0 0 18px; }
   /* line 4340, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .cart_totals span {
-    color: #fd3a13; }
+    color: #395a93; }
 
 /* line 4345, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
 .remember {
@@ -8689,7 +8691,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   font: 12px/40px "Noto Sans"; }
   /* line 4348, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .remember a {
-    color: #fd3a13;
+    color: #395a93;
     text-decoration: none;
     margin-left: 15px; }
   /* line 4353, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
@@ -8726,7 +8728,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   font: 12px/40px "Noto Sans"; }
   /* line 4386, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .create-account a {
-    color: #fd3a13;
+    color: #395a93;
     text-decoration: none;
     margin-left: 15px; }
 
@@ -8787,7 +8789,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     color: #222; }
   /* line 4450, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .order-table .orange {
-    color: #fd3a13; }
+    color: #395a93; }
   /* line 4453, D:/aartyomenko/Git/spectr/html/app/scss/_theme_style.scss */
   .order-table .payment {
     padding: 12px 0; }
@@ -8960,7 +8962,8 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 /* line 67, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
 .main-header,
 .sticky-header {
-  padding: 0 0 0 58px; }
+  /*padding: 0 0 0 58px; */
+}
   @media screen and (max-width: 639px) {
     /* line 67, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
     .main-header,
@@ -9070,7 +9073,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 136, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
 .header-tp-4 .top-bar {
-  background: #8D0000;
+  background: #395a93;
   color: #e3e3e3; }
   /* line 139, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
   .header-tp-4 .top-bar .top-bar-inner {
@@ -9388,7 +9391,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 429, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
 .header-mb {
-  background-color: #8D0000;
+  background-color: #395a93;
   display: none;
   color: #fff;
   padding: 15px 0 9px;
@@ -9619,7 +9622,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   /* line 608, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
   .main-nav-list ul.sub,
   .sf-menu ul.sub {
-    background-color: #8D0000;
+    background-color: #395a93;
     display: none;
     padding: 11px 0;
     min-width: 220px;
@@ -9702,7 +9705,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     /* line 680, D:/aartyomenko/Git/spectr/html/app/scss/_header.scss */
     .main-nav-list > li > a:after,
     .sf-menu > li > a:after {
-      background: #fd3a13;
+      background: #395a93;
       content: '';
       position: absolute;
       left: 0;
@@ -10024,7 +10027,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 
 /* line 90, D:/aartyomenko/Git/spectr/html/app/scss/_footer.scss */
 .bottom-bar {
-  background: #8D0000;
+  background: #395a93;
   color: #fff;
   font-size: 11px;
   font-weight: 500;
@@ -10462,7 +10465,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     margin: 4px 0; }
   /* line 207, D:/aartyomenko/Git/spectr/html/app/scss/_popups.scss */
   .tp-list .tp-list-item a {
-    color: #fd3a13;
+    color: #395a93;
     text-decoration: none; }
 
 /* line 214, D:/aartyomenko/Git/spectr/html/app/scss/_popups.scss */
@@ -10627,7 +10630,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       padding: 0 0 0 120px; } }
   /* line 13, D:/aartyomenko/Git/spectr/html/app/scss/_main_posts.scss */
   .trending-line .trending-now {
-    background-color: #8D0000;
+    background-color: #395a93;
     color: #fff;
     position: absolute;
     left: 0;
@@ -10640,7 +10643,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
       width: 0;
       height: 0;
       border-top: 13px solid transparent;
-      border-left: 5px solid #8D0000;
+      border-left: 5px solid #395a93;
       border-bottom: 13px solid transparent;
       position: absolute;
       right: -5px; }
@@ -11200,8 +11203,8 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
         background: #fff; }
       /* line 34, D:/aartyomenko/Git/spectr/html/app/scss/_main_video_posts.scss */
       .video-posts-pane .owl-pagination .owl-page.active span {
-        background: #fd3a13;
-        border-color: #fd3a13; }
+        background: #395a93;
+        border-color: #395a93; }
 
 @media screen and (max-width: 1520px) {
   /* line 4, D:/aartyomenko/Git/spectr/html/app/scss/_media.scss */
@@ -12358,6 +12361,8 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   font-weight: bold;
   margin-top: 15px;
   font-size: 20px;
+  font-family: arial;
+  color: #00487f;
 }
 
 .logoImgSmall{
@@ -12378,6 +12383,10 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
     font-weight: bold;
     font-size: 18px;
     margin-top: 5px;
+}
+.lgTag{
+  font-family: arial;
+  color: #00487f;
 }
 
 @media screen and (max-width: 480px) {
@@ -12441,4 +12450,20 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
 }
 .usubmenu{
   margin-left: 20px;
+}
+.custom-cont4{
+  width: 24.4%;
+  float:left;
+  margin-right: 0.8%;
+}
+.custom-cont4.last{
+  margin-right: 0;
+}
+@media screen and (max-width: 1077px){
+  .custom-cont4{
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+
 }

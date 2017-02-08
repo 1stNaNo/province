@@ -12,7 +12,7 @@ class BannerComposer
     public function compose(View $view)
     {
 
-      $banner = Banner::byName($view->name)->first();
+      $banner = Banner::all();
 
       return $view->with('banner', $banner);
     }

@@ -1,14 +1,17 @@
 <div class="editors-pst">
     <div class="pst-block spst-slider">
-        <div class="pst-block-head">
-            <h2 class="title-4"><strong>{{trans('resource.latestNews')}}</strong></h2>
+        <div class="pst-block-head" style="background: #395a93;">
+            <h2 class="title-4" style="color: #fff"><strong>{{trans('resource.latestNews')}}</strong></h2>
             <div class="filters">
+                <ul class="filters-list-1 xs-hide">
+                    <li><a style="color: #fff;" class="active" href="/listlatestnews">{{trans('resource.more')}}</a></li>
+                </ul>
                 <div class="post-navs js-pst-navs">
                     <a href="" class="prev pst-prev">
-                        <span class="arr-left-dark-ic"><i></i></span>
+                        <span class="arr-left-light-ic"><i></i></span>
                     </a>
                     <a href="" class="next pst-next">
-                        <span class="arr-right-dark-ic"><i></i></span>
+                        <span class="arr-right-light-ic"><i></i></span>
                     </a>
                 </div>
                 {{-- <div class="filters-more">
@@ -66,9 +69,6 @@
                     </div> --}}
                 </div>
             </div>
-        </div>
-        <div class="pst-block-foot">
-            <a href="/listlatestnews">{{trans('resource.more')}}</a>
         </div>
     </div>
 </div>

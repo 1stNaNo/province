@@ -30,6 +30,14 @@ class Vw_news extends Model
         $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereActive_flag(1)->orderBy("insert_date","DESC")->groupBy("id");
     }
 
+    public function scopeMostViewed($query){
+        $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereActive_flag(1)->orderBy("views","DESC")->groupBy("id");
+    }
+
+    public function scopeMostComment($query){
+        $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereActive_flag(1)->orderBy("comment_count","DESC")->groupBy("id");
+    }
+
     public function scopeByCategory($query, $cat_id, $paginate){
       $query->from(self::$vw)->whereLang(\Session::get("lang"))->whereCat_id($cat_id)->whereActive_flag(1)->paginate($paginate);
     }

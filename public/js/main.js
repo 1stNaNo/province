@@ -125,18 +125,18 @@ $(document).ready(function(){
 
 // Trending line slider
 (function() {
-    $(document).ready(function() {
-        var slider = $('.tl-slider');
-
-        slider.slick({
-            fade: true,
-            speed: 800,
-            autoplay: true,
-            appendArrows: $('.tl-slider-control'),
-            prevArrow: '<span class="arr-left-dark-ic tls-prev"><i></i></span>',
-            nextArrow: '<span class="arr-right-dark-ic tls-next"><i></i></span>'
-        });
-    });
+    // $(document).ready(function() {
+    //     var slider = $('.tl-slider');
+    //
+    //     slider.slick({
+    //         fade: true,
+    //         speed: 800,
+    //         autoplay: true,
+    //         appendArrows: $('.tl-slider-control'),
+    //         prevArrow: '<span class="arr-left-dark-ic tls-prev"><i></i></span>',
+    //         nextArrow: '<span class="arr-right-dark-ic tls-next"><i></i></span>'
+    //     });
+    // });
 })();
 
 // Trending posts slider
@@ -192,6 +192,7 @@ $(document).ready(function(){
             // Optional parameters
             speed: 1000,
             loop: true,
+            autoplay: 10000,
 
             nextButton: '.nav-arrow.next',
             prevButton: '.nav-arrow.prev',
@@ -903,6 +904,28 @@ $(function() {
 // CUSOTIME BY NANO
 $(document).ready(function(){
 
+  // $(".tl-slider-control").each(function(){
+  //
+  //     var isDelete = false;
+  //
+  //     $(this).find('.tls-prev').each(function(){
+  //         if(isDelete == true){
+  //           $(this).remove();
+  //         }else{
+  //           isDelete = true;
+  //         }
+  //     });
+  //
+  //     isDelete = false;
+  //
+  //     $(this).find('.tls-next').each(function(){
+  //         if(isDelete == true){
+  //           $(this).remove();
+  //         }else{
+  //           isDelete = true;
+  //         }
+  //     });
+  // });
 
   for(var i=0; i < basicMenuObj.length; i++){
 

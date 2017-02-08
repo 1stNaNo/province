@@ -59,6 +59,18 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'layouts.banner', 'App\Http\ViewComposers\BannerComposer'
         );
+
+        View::composer(
+            'layouts.most_viewed', 'App\Http\ViewComposers\MostViewedComposer'
+        );
+
+        View::composer(
+            'layouts.most_comment', 'App\Http\ViewComposers\MostCommentComposer'
+        );
+
+        View::composer(
+            'layouts.external_news', 'App\Http\ViewComposers\ExternalNewsComposer'
+        );
     }
 
     /**

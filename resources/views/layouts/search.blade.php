@@ -22,11 +22,11 @@
           </div>
       </div>
   @elseif($vwType == "top")
-  <div class="hd-search">
-      <a href="#search-block" class="st-btn-1 fa-flip-horizontal js-hd-search">
+  <div class="hd-search" style="width: 10px; height: 10px;">
+      <a href="#search-block" class="st-btn-1 fa-flip-horizontal js-hd-search" style="height: 10px; margin:0">
           <i class="li_search"></i>
       </a>
-      <div class="hd-search-block js-hd-search-block">
+      <div class="hd-search-block js-hd-search-block" style="z-index: 99;">
           <div class="search">
               <div class="search-input">
                   <input type="search" name="keyword" placeholder="{{trans('resource.keyword')}}">

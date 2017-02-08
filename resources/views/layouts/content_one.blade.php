@@ -1,7 +1,12 @@
 <div class="design-pst">
     <div class="pst-block">
-        <div class="pst-block-head">
-            <h2 class="title-4"><strong>{{$model[0]->ca_title}}</strong></h2>
+        <div class="pst-block-head" style="background: #395a93;">
+            <h2 class="title-4" style="color: #fff;"><strong>{{$model[0]->ca_title}}</strong></h2>
+            <div class="filters">
+              <ul class="filters-list-1 xs-hide">
+                  <a class="active" style="color:#fff;" href="/listcategory/{{$model[0]->cat_id}}">{{trans('resource.more')}}</a>
+              </ul>
+            </div>
             {{-- <div class="filters">
                 <ul class="filters-list-1 xs-hide">
                     <li><a href="" class="active">all</a></li>
@@ -86,9 +91,6 @@
                   @endif
               @endfor
             </div>
-        </div>
-        <div class="pst-block-foot">
-            <a href="/listcategory/{{$model[0]->cat_id}}">{{trans('resource.more')}}</a>
         </div>
     </div>
 </div>
