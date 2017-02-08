@@ -12,7 +12,7 @@ class ExtraNewsController extends Controller
 
       $news = Vw_news::latestNewsByLang($lang)->paginate($count);
       var_dump($count);
-      return response()->json($news->toArray());
+      return \View::make('category')->withModel($news);
     }
 
 }
