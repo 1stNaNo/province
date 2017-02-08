@@ -54,6 +54,7 @@
 
                     @include('layouts.sidebar_dslide')
 
+                    @include('layouts.sidebar_file')
                     {{-- SIDE BAR SLIDE HERE  --}}
                     @include('layouts.slide_sidebar')
 

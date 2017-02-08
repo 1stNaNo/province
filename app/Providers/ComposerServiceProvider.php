@@ -71,6 +71,10 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'layouts.external_news', 'App\Http\ViewComposers\ExternalNewsComposer'
         );
+
+        View::composer(
+            'layouts.sidebar_file', 'App\Http\ViewComposers\FileComposer'
+        );
     }
 
     /**

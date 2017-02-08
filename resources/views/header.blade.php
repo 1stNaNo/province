@@ -23,6 +23,7 @@
 
 <!-- Icon Fonts  -->
 <link rel="stylesheet" href="/css/font-awesome.css" />
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" href="/css/linecons.css" />
 <link rel="stylesheet" href="/css/fontello.css" />
 

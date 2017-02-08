@@ -24,6 +24,8 @@ Route::get('/category', 'CategoryController@index')->middleware('lang');
 
 Route::get('/post/{id}', 'PostController@index')->middleware('lang');
 
+Route::get('/file/{id}', 'FileController@index')->middleware('lang');
+
 Route::post('/comment', 'CommentController@save')->middleware('lang');
 
 Route::get('/listcategory/{id}', 'ByCategoryController@index')->middleware('lang');

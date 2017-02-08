@@ -169,6 +169,6 @@ return [
     'conf' => [
       'uploadPath' => 'img/uploaded/',
       'readPath' => '/img/uploaded/',
-      'host' => 'http://192.168.1.4'
+      'host' => 'http://192.168.1.5:8000'
     ]
 ];
