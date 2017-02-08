@@ -29,6 +29,7 @@ return [
     'language' => 'LANGUAGE',
     'mn' => 'MN',
     'en' => 'ENG',
+    'china' => 'China',
     'weather' => 'Weather',
     'comments' => 'Comments',
     'comment' => 'Comment',

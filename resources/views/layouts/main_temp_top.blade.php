@@ -69,23 +69,9 @@
                             <div class="tb-sing-login" style="font-family: arial; font: none; font-weight: bold; width: 10px;">
                                 @include('layouts.search',['vwType' => 'top'])
                             </div>
-                            <div class="tb-social" style="width: 105px;">
-                                <ul class="tb-social-list">
-                                    <li class="tw">
-                                        <a href="{{trans('resource.main.fblink')}}" target="_blank" >
-                                            <i class="fa fa-facebook" style="font-size: 18px;"></i>
-                                        </a>
-                                    </li>
-                                    <li class="fb">
-                                        <a href="{{trans('resource.main.twitterlink')}}" target="_blank">
-                                            <i class="fa fa-twitter" style="font-size: 18px;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tb-sing-login" style="font-family: arial; font: none; font-weight: bold">
-                                {{trans('resource.language')}}: <a href="#" onclick="langFuncs.change('mn')" class="">{{trans('resource.mn')}}</a> / <a href="#" onclick="langFuncs.change('en')" class="">{{trans('resource.en')}}</a>
-                            </div>
+                            @include('layouts.social')
+
+                            @include('layouts.lang')
                         </div>
                     </div>
                 </div>

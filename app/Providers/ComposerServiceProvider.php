@@ -75,6 +75,17 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'layouts.sidebar_file', 'App\Http\ViewComposers\FileComposer'
         );
+		View::composer(
+            'layouts.social', 'App\Http\ViewComposers\SocialComposer'
+        );
+
+        View::composer(
+            'layouts.video', 'App\Http\ViewComposers\SocialComposer'
+        );
+
+        View::composer(
+            'layouts.lang', 'App\Http\ViewComposers\SocialComposer'
+        );
     }
 
     /**

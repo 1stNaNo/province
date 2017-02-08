@@ -50,7 +50,7 @@
 <!-- endbuild -->
 
 <!-- Google maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?sensor=true&amp;v=3"></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?sensor=true&amp;v=3"></script> --}}
 <!-- build:js scripts/vendor.js -->
 
 <!-- Vendor -->
