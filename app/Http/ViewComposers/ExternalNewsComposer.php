@@ -14,7 +14,7 @@ class ExternalNewsComposer
     public function compose(View $view)
     {
 
-      $data = [];
+      $data = '';
       $external = External::all();
 
       foreach($external as $item){
@@ -26,8 +26,9 @@ class ExternalNewsComposer
               $result = $response->body;
           }
       }
-      var_dump($result);
+      $data = $data."".$result;
 
-      return $view->withModel($data);
+
+      return $view->with('data', $data);
     }
 }

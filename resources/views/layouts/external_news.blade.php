@@ -4,7 +4,7 @@
             <h2 class="title-4" style="color: #fff;"><strong>{{trans('resource.sums_news')}}</h2>
         </div>
         <div class="pst-block-main">
-            
+            {!!html_entity_decode($data)!!}
         </div>
         <div class="pst-block-foot">
             <div class="js-sbr-pagination"></div>
