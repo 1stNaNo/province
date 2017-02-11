@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
+@if(Session::has('admin')) its admin @else its not admin @endif
 <div class="row-fluid">
   <div class="span12">
     <img src="assets/img/unitywebwallpaper.png" widht="100%" style="width: 100%"/>
   </div>
-</div>
 <script type="text/javascript">
   $(document).ready(function() {
       var table = $('#example3').dataTable({
